@@ -1,0 +1,22 @@
+{{ define "main" }}
+{{ partial "breadcrumb.html" . }}
+<div class="container page-head level-head">
+  <p class="eyebrow">{{ i18n "for_teachers" }}</p>
+  <h1>{{ .Title }}</h1>
+</div>
+
+<section aria-labelledby="plans-h">
+  <div class="container"><h2 id="plans-h" class="section-title">{{ i18n "lesson_plans" }}</h2></div>
+  {{ partial "listing-block.html" . }}
+</section>
+
+{{- range .Sections.ByWeight }}
+<section class="container section" aria-label="{{ .Title }}">
+  <a class="audience-card" data-accent="ucitelji" href="{{ .RelPermalink }}">
+    <span class="audience-name">{{ .Title }}</span>
+    <span class="audience-desc">{{ .Params.summary }}</span>
+    <span class="audience-count">{{ len (where .RegularPages "Params.status" "ne" "outline") }} vsebin</span>
+  </a>
+</section>
+{{- end }}
+{{ end }}

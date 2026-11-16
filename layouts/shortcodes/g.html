@@ -1,0 +1,7 @@
+{{- $slug := .Get 0 -}}
+{{- $text := .Get 1 -}}
+{{- with site.GetPage (printf "/glosar/%s" $slug) -}}
+<a class="term" href="{{ .RelPermalink }}"{{ with .Params.short }} title="{{ . | plainify }}"{{ end }}>{{ or $text .Title }}</a>
+{{- else -}}
+{{- errorf "Unknown glossary term %q (%s)" $slug .Position -}}
+{{- end -}}

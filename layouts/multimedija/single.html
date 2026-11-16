@@ -1,0 +1,57 @@
+{{ define "main" }}
+{{ partial "breadcrumb.html" . }}
+{{- $main := .Resources.GetMatch "main.*" -}}
+<article class="article media" data-pagefind-body>
+  {{ partial "pagefind-meta.html" . }}
+  <header class="container article-header">
+    <p class="eyebrow">{{ partial "type-label.html" .Type }}</p>
+    {{ partial "badges.html" . }}
+    <h1 data-pagefind-meta="title">{{ .Title }}</h1>
+  </header>
+  <div class="container narrow">
+    {{- if .Params.video }}
+      {{- $v := .Params.video }}
+      <figure class="figure video">
+        <video controls preload="none"{{ with $main }} poster="{{ .RelPermalink }}"{{ end }}>
+          <source src="{{ $v.src }}" type="video/mp4">
+          {{- with $v.captions }}<track kind="captions" src="{{ . }}" srclang="sl" label="Slovenščina" default>{{ end }}
+        </video>
+      </figure>
+    {{- else }}{{ with $main }}
+      <figure class="figure"><img src="{{ .RelPermalink }}" alt="{{ $.Params.alt }}"></figure>
+    {{- end }}{{ end }}
+    {{- with .Params.summary }}<p class="lead">{{ . }}</p>{{ end }}
+    {{- with .Content }}<div class="prose">{{ . }}</div>{{ end }}
+
+    {{- with .Params.transcript }}
+    <details class="backmatter">
+      <summary><strong>{{ i18n "transcript" }}</strong></summary>
+      {{ . | markdownify }}
+    </details>
+    {{- end }}
+
+    <dl class="meta-strip stacked">
+      {{- with .Params.credit }}<div><dt>{{ i18n "credit" }}</dt><dd>{{ . }}</dd></div>{{ end }}
+      <div><dt>{{ i18n "licence" }}</dt><dd>{{ with .Params.license_url }}<a href="{{ . }}" rel="license noopener">{{ or $.Params.license site.Params.licenseName }}</a>{{ else }}{{ or .Params.license site.Params.licenseName }}{{ end }}</dd></div>
+    </dl>
+
+    {{- $files := .Resources.ByType "application" }}
+    {{- $imgs := where .Resources "ResourceType" "image" }}
+    {{- if or $files $imgs }}
+    <section class="backmatter" aria-labelledby="dl-h">
+      <h2 id="dl-h">{{ i18n "download" }}</h2>
+      {{ partial "downloads.html" . }}
+      {{- if $imgs }}
+      <ul class="downloads" role="list">
+        {{- range $imgs }}
+        {{- $ext := upper (strings.TrimPrefix "." (path.Ext .Name)) }}
+        <li class="download"><span class="download-ext" aria-hidden="true">{{ $ext }}</span><span class="download-body"><span class="download-title">{{ or .Title .Name }}</span><span class="download-meta">{{ $ext }}</span></span><a class="button button-small" href="{{ .RelPermalink }}" download>{{ i18n "download" }}<span class="visually-hidden"> {{ or .Title .Name }}</span></a></li>
+        {{- end }}
+      </ul>
+      {{- end }}
+    </section>
+    {{- end }}
+    <p class="muted">Pred uporabo v predstavitvi navedite avtorja in licenco, kot je zapisano zgoraj.</p>
+  </div>
+</article>
+{{ end }}

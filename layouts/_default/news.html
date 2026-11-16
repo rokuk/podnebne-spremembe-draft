@@ -1,0 +1,15 @@
+{{ define "main" }}
+{{ partial "breadcrumb.html" . }}
+<div class="container page-head">
+  <h1>{{ .Title }}</h1>
+</div>
+<div class="container">
+  {{- $pag := .Paginate (.RegularPages.ByDate.Reverse) }}
+  {{- if $pag.Pages }}
+  <div class="card-grid">
+    {{- range $pag.Pages }}{{ partial "card-item.html" . }}{{ end }}
+  </div>
+  {{ partial "pagination.html" . }}
+  {{- else }}<p>{{ i18n "no_items" }}</p>{{ end }}
+</div>
+{{ end }}

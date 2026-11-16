@@ -1,0 +1,34 @@
+{{ define "main" }}
+{{ partial "breadcrumb.html" . }}
+{{- $slug := .File.ContentBaseName -}}
+<article class="container narrow prose-page" data-pagefind-body>
+  {{ partial "pagefind-meta.html" . }}
+  <p class="eyebrow">{{ i18n "glossary_page" }}</p>
+  <h1 data-pagefind-meta="title">{{ .Title }}</h1>
+  <p class="lead">{{ .Params.short | markdownify }}</p>
+  {{- $v := slice (dict "k" "short_osnovna" "l" (i18n "for_pupils")) (dict "k" "short_srednja" "l" (i18n "for_secondary")) (dict "k" "short_strokovnjaki" "l" (i18n "for_experts")) }}
+  {{- $page := . }}
+  {{- if or .Params.short_osnovna .Params.short_srednja .Params.short_strokovnjaki }}
+  <dl class="level-defs">
+    {{- range $v }}{{ $t := index $page.Params .k }}{{ if $t }}<div><dt>{{ .l }}</dt><dd>{{ $t | markdownify }}</dd></div>{{ end }}{{ end }}
+  </dl>
+  {{- end }}
+  {{- with .Content }}<div class="prose">{{ . }}</div>{{ end }}
+
+  {{- with .Params.related }}
+  <section class="backmatter" aria-labelledby="rt-h">
+    <h2 id="rt-h">{{ i18n "related_terms" }}</h2>
+    <ul class="chips">{{ range . }}{{ with site.GetPage (printf "/glosar/%s" .) }}<li><a href="{{ .RelPermalink }}">{{ .Title }}</a></li>{{ end }}{{ end }}</ul>
+  </section>
+  {{- end }}
+
+  {{- $users := where (where site.RegularPages "Type" "clanek") "Params.glossary" "intersect" (slice $slug) }}
+  {{- $users = where $users "Params.status" "ne" "outline" }}
+  {{- if $users }}
+  <section class="backmatter" aria-labelledby="ua-h">
+    <h2 id="ua-h">{{ i18n "used_in_articles" }}</h2>
+    <ul class="plain">{{ range $users }}<li><a href="{{ .RelPermalink }}">{{ .Title }}</a> <span class="muted">· {{ partial "level-name.html" .Params.level }}</span></li>{{ end }}</ul>
+  </section>
+  {{- end }}
+</article>
+{{ end }}

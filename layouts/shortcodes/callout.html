@@ -1,0 +1,6 @@
+{{- $type := .Get "type" | default "pomembno" -}}
+{{- $labels := dict "vedeli" "Ali ste vedeli?" "razmisli" "Razmisli" "poskus" "Poskus" "pomembno" "Pomembno" -}}
+<aside class="callout callout-{{ $type }}" role="note">
+  <p class="callout-title">{{ index $labels $type }}</p>
+  <div class="callout-body">{{ .Inner }}</div>
+</aside>

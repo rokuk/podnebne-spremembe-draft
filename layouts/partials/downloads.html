@@ -1,0 +1,23 @@
+{{- /* Download cards for all "application" resources (pdf, docx, pptx, odt, zip …) of a page bundle. */ -}}
+{{- $page := . -}}
+{{- $files := .Resources.ByType "application" -}}
+{{- if $files }}
+<ul class="downloads" role="list">
+  {{- range $files }}
+  {{- $ext := upper (strings.TrimPrefix "." (path.Ext .Name)) }}
+  {{- $size := 0 }}
+  {{- with .Params.size }}{{ $size = . }}{{ else }}
+    {{- $fp := path.Join "content" $page.File.Dir .Name }}
+    {{- if os.FileExists $fp }}{{ $size = (os.Stat $fp).Size }}{{ end }}
+  {{- end }}
+  <li class="download">
+    <span class="download-ext" aria-hidden="true">{{ $ext }}</span>
+    <span class="download-body">
+      <span class="download-title">{{ or .Title .Name }}</span>
+      <span class="download-meta">{{ $ext }}{{ if $size }} · {{ if ge $size 1048576 }}{{ lang.FormatNumber 1 (div (float $size) 1048576) }} MB{{ else }}{{ lang.FormatNumber 0 (div (float $size) 1024) }} kB{{ end }}{{ end }}{{ with .Params.language }} · {{ . }}{{ end }}</span>
+    </span>
+    <a class="button button-small" href="{{ .RelPermalink }}" download>{{ i18n "download" }}<span class="visually-hidden"> {{ or .Title .Name }} ({{ $ext }}{{ if $size }}, {{ if ge $size 1048576 }}{{ lang.FormatNumber 1 (div (float $size) 1048576) }} MB{{ else }}{{ lang.FormatNumber 0 (div (float $size) 1024) }} kB{{ end }}{{ end }})</span></a>
+  </li>
+  {{- end }}
+</ul>
+{{- end }}

@@ -1,0 +1,145 @@
+{{ define "main" }}
+{{- $outline := eq .Params.status "outline" -}}
+{{- $page := . -}}
+{{ partial "breadcrumb.html" . }}
+
+{{- /* Build-time validation: published articles must be complete. */ -}}
+{{- if not $outline }}
+  {{- if not .Params.abstract }}{{ errorf "Article %s: missing abstract" .File.Path }}{{ end }}
+  {{- if not .Params.sources }}{{ errorf "Article %s: missing sources" .File.Path }}{{ end }}
+  {{- if not .Params.glossary }}{{ errorf "Article %s: missing glossary" .File.Path }}{{ end }}
+{{- end }}
+
+<article class="article"{{ if not $outline }} data-pagefind-body{{ end }}>
+  {{- if not $outline }}{{ partial "pagefind-meta.html" . }}{{ end }}
+  <header class="container article-header">
+    <h1{{ if not $outline }} data-pagefind-meta="title"{{ end }}>{{ .Title }}</h1>
+    <ul class="meta-line" role="list">
+      {{- with .Params.authors }}<li>{{ i18n "authors" }}: {{ delimit . ", " }}</li>{{ end }}
+      <li>{{ i18n "last_updated" }}: <time datetime="{{ (or .Lastmod .Date).Format "2006-01-02" }}">{{ (or .Lastmod .Date).Format "2. 1. 2006" }}</time></li>
+    </ul>
+    <div class="header-bottom">
+      {{ partial "badges.html" . }}
+    </div>
+  </header>
+
+  <div class="container article-layout">
+    <div class="article-main">
+      {{- if $outline }}
+      <div class="notice" role="status"><strong>{{ i18n "under_construction" }}.</strong> {{ i18n "outline_notice" }}</div>
+      {{- end }}
+
+      {{- with .Params.abstract }}
+      <section id="povzetek" class="abstract" aria-labelledby="povzetek-h">
+        <h2 id="povzetek-h">{{ i18n "abstract" }}</h2>
+        {{ . | markdownify }}
+        {{- with $page.Params.key_points }}
+        <h3>{{ i18n "key_points" }}</h3>
+        <ul>{{ range . }}<li>{{ . | markdownify }}</li>{{ end }}</ul>
+        {{- end }}
+      </section>
+      {{- end }}
+
+      <div class="prose">
+        {{ .Content }}
+      </div>
+
+      {{- with .Params.glossary }}
+      <section id="slovarcek" class="backmatter" aria-labelledby="slovarcek-h">
+        <h2 id="slovarcek-h">{{ i18n "glossary" }}</h2>
+        <dl class="glossary-list">
+          {{- $key := "" }}
+          {{- range site.Data.levels }}{{ if eq .slug $page.Params.level }}{{ $key = .short_key }}{{ end }}{{ end }}
+          {{- range . }}
+          {{- with site.GetPage (printf "/glosar/%s" .) }}
+          {{- $def := or (index .Params (printf "short_%s" $key)) .Params.short }}
+          <div><dt><a href="{{ .RelPermalink }}">{{ .Title }}</a></dt><dd>{{ $def | markdownify }}</dd></div>
+          {{- else }}{{ errorf "Article %s: unknown glossary term %q" $page.File.Path . }}{{ end }}
+          {{- end }}
+        </dl>
+      </section>
+      {{- end }}
+
+      {{- with .Params.sources }}
+      <section id="viri" class="backmatter" aria-labelledby="viri-h">
+        <h2 id="viri-h">{{ i18n "sources" }}</h2>
+        <ol class="sources">
+          {{- range $i, $s := . }}
+          <li id="vir-{{ add $i 1 }}">{{ $s.citation | markdownify }}{{ with $s.url }} <a href="{{ . }}" rel="noopener">{{ . }}</a>{{ end }}{{ with $s.accessed }} <span class="muted">({{ i18n "accessed" }}: {{ . }})</span>{{ end }}</li>
+          {{- end }}
+        </ol>
+      </section>
+      {{- end }}
+
+      {{- if not $outline }}
+      <section class="backmatter cite-box" aria-labelledby="cite-h">
+        <h2 id="cite-h">{{ i18n "cite_as" }}</h2>
+        <p>{{ if .Params.authors }}{{ delimit .Params.authors ", " }}{{ else }}{{ site.Title }}{{ end }} ({{ (or .Lastmod .Date).Format "2006" }}). {{ .Title }}. {{ site.Title }}. <a href="{{ .Permalink }}">{{ .Permalink }}</a></p>
+      </section>
+      {{- end }}
+
+      {{- $sibs := .Parent.RegularPages.ByWeight }}
+      {{- if not site.Params.showOutlines }}{{ $sibs = where $sibs "Params.status" "ne" "outline" }}{{ end }}
+      <nav class="prev-next" aria-label="{{ i18n "articles" }}">
+        {{- with $sibs.Prev $page }}<a class="prev" href="{{ .RelPermalink }}" rel="prev"><span>← {{ i18n "prev_article" }}</span>{{ .Title }}</a>{{ end }}
+        {{- with $sibs.Next $page }}<a class="next" href="{{ .RelPermalink }}" rel="next"><span>{{ i18n "next_article" }} →</span>{{ .Title }}</a>{{ end }}
+      </nav>
+    </div>
+
+    <aside class="article-aside" aria-label="Dodatno">
+      <div class="aside-sticky">
+        <nav class="toc" aria-label="{{ i18n "toc" }}">
+          <details open class="toc-details">
+            <summary>{{ i18n "on_this_page" }}</summary>
+            <ul class="toc-fixed">
+              {{- if .Params.abstract }}<li><a href="#povzetek">{{ i18n "abstract" }}</a></li>{{ end }}
+            </ul>
+            {{ .TableOfContents }}
+            <ul class="toc-fixed">
+              {{- if .Params.glossary }}<li><a href="#slovarcek">{{ i18n "glossary" }}</a></li>{{ end }}
+              {{- if .Params.sources }}<li><a href="#viri">{{ i18n "sources" }}</a></li>{{ end }}
+            </ul>
+          </details>
+        </nav>
+
+        {{- /* Teaching materials: explicit list first, else same topic and level. */ -}}
+        {{- $mats := slice }}
+        {{- range .Params.materials }}
+          {{- $m := site.GetPage (printf "/ucitelji/%s" .) }}
+          {{- if not $m }}{{ $m = site.GetPage (printf "/ucitelji/gradiva/%s" .) }}{{ end }}
+          {{- if $m }}{{ $mats = $mats | append $m }}{{ else }}{{ warnf "Article %s: unknown material %q" $page.File.Path . }}{{ end }}
+        {{- end }}
+        {{- if $mats }}
+        <section class="side-box" data-accent="ucitelji">
+          <h2>{{ i18n "materials_for_teachers" }}</h2>
+          <ul class="plain">{{ range $mats }}<li><a href="{{ .RelPermalink }}">{{ .Title }}</a><span class="muted block">{{ partial "type-label.html" .Type }}</span></li>{{ end }}</ul>
+        </section>
+        {{- end }}
+
+        {{- with .Params.services }}
+        <section class="side-box">
+          <h2>{{ i18n "data_and_tools" }}</h2>
+          <ul class="plain">{{ range . }}<li><a href="{{ .url }}" rel="noopener">{{ .title }}</a>{{ with .provider }}<span class="muted block">{{ . }}</span>{{ end }}</li>{{ end }}</ul>
+        </section>
+        {{- end }}
+
+        {{- $topic := index .Params.teme 0 }}
+        {{- with $topic }}
+        <section class="side-box">
+          <h2>{{ i18n "topics_other_levels" }}</h2>
+          <ul class="plain">
+            {{- if $page.Params.other_levels }}
+            {{- range $page.Params.other_levels }}{{ with site.GetPage . }}<li><a href="{{ .RelPermalink }}">{{ partial "level-name.html" .Params.level }}</a><span class="muted block">{{ .Title }}</span></li>{{ else }}{{ errorf "Article %s: unknown other_levels page %q" $page.File.Path . }}{{ end }}{{ end }}
+            {{- else }}
+            {{- range site.Data.levels }}{{ if ne .slug $page.Params.level }}
+            {{- with site.GetPage (printf "/%s/%s" .slug $topic) }}<li><a href="{{ .RelPermalink }}">{{ partial "level-name.html" .Params.level }}</a></li>{{ end }}
+            {{- end }}{{ end }}
+            {{- end }}
+          </ul>
+        </section>
+        {{- end }}
+      </div>
+    </aside>
+  </div>
+</article>
+{{ end }}

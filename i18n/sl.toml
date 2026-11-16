@@ -1,0 +1,188 @@
+[skip]
+other = 'Preskoči na vsebino'
+[menu]
+other = 'Meni'
+[main_nav]
+other = 'Glavni meni'
+[breadcrumb]
+other = 'Drobtinice'
+[search]
+other = 'Iskanje'
+[search_placeholder]
+other = 'Poiščite članek, pojem ali gradivo'
+[search_go]
+other = 'Išči'
+[abstract]
+other = 'Povzetek'
+[key_points]
+other = 'Ključne točke'
+[glossary]
+other = 'Slovarček'
+[sources]
+other = 'Viri'
+[toc]
+other = 'Kazalo'
+[on_this_page]
+other = 'Na tej strani'
+[for_teachers]
+other = 'Učitelji'
+[lesson_plans]
+other = 'Učne priprave'
+[worksheets]
+other = 'Gradiva za prenos'
+[downloads]
+other = 'Gradiva za prenos'
+[download]
+other = 'Prenesi'
+[download_all]
+other = 'Prenesi vse (ZIP)'
+[file_size]
+other = 'Velikost'
+[multimedia]
+other = 'Multimedija'
+[news]
+other = 'Novice'
+[about]
+other = 'O projektu'
+[read_more]
+other = 'Preberi več'
+[under_construction]
+other = 'V pripravi'
+[outline_notice]
+other = 'To poglavje je v pripravi. Spodaj je načrtovana vsebina; besedilo še ni napisano.'
+[related_articles]
+other = 'Sorodni članki'
+[last_updated]
+other = 'Zadnja posodobitev'
+[authors]
+other = 'Avtorji'
+[reviewed_by]
+other = 'Strokovni pregled'
+[review_pending]
+other = 'še ni opravljen'
+[draft_notice]
+other = 'Osnutek vsebine čaka na strokovni pregled.'
+[reading_time]
+other = 'Čas branja'
+[minutes]
+other = 'min'
+[print]
+other = 'Natisni'
+[copy_link]
+other = 'Kopiraj povezavo'
+[link_copied]
+other = 'Povezava kopirana'
+[cite_as]
+other = 'Citat'
+[accessed]
+other = 'pridobljeno'
+[grade]
+other = 'Razred'
+[subject]
+other = 'Predmet'
+[topic]
+other = 'Tema'
+[level]
+other = 'Stopnja'
+[type]
+other = 'Vrsta'
+[duration]
+other = 'Trajanje'
+[licence]
+other = 'Licenca'
+[all]
+other = 'Vse'
+[results]
+other = 'Število zadetkov'
+[no_results]
+other = 'Za izbrane filtre ni zadetkov.'
+[reset_filters]
+other = 'Počisti filtre'
+[filters]
+other = 'Filtri'
+[topics]
+other = 'Teme'
+[topics_other_levels]
+other = 'Ta tema na drugih stopnjah'
+[learning_path]
+other = 'Članki v tem poglavju'
+[materials_for_teachers]
+other = 'Gradiva za učitelje'
+[data_and_tools]
+other = 'Podatki in orodja'
+[linked_services]
+other = 'Povezani servisi'
+[learning_objectives]
+other = 'Učni cilji'
+[materials_needed]
+other = 'Potrebščine'
+[lesson_flow]
+other = 'Potek ure'
+[assessment]
+other = 'Vrednotenje'
+[attachments]
+other = 'Priloge za prenos'
+[related_media]
+other = 'Povezana gradiva'
+[transcript]
+other = 'Prepis'
+[credit]
+other = 'Avtor / vir'
+[embed]
+other = 'Vdelava'
+[used_in_articles]
+other = 'Uporabljeno v člankih'
+[related_terms]
+other = 'Sorodni pojmi'
+[for_pupils]
+other = 'Za osnovno šolo'
+[for_secondary]
+other = 'Za srednjo šolo'
+[for_experts]
+other = 'Za strokovnjake'
+[page]
+other = 'Stran'
+[previous]
+other = 'Prejšnja'
+[next]
+other = 'Naslednja'
+[prev_article]
+other = 'Prejšnji članek'
+[next_article]
+other = 'Naslednji članek'
+[articles]
+other = 'Članki'
+[article_count_one]
+other = 'članek'
+[all_levels]
+other = 'Druge stopnje'
+[start_here]
+other = 'Začnite z osnovami'
+[latest_plans]
+other = 'Najnovejše učne priprave'
+[latest_media]
+other = 'Nove multimedijske vsebine'
+[latest_news]
+other = 'Novice'
+[show_all]
+other = 'Pokaži vse'
+[glossary_filter]
+other = 'Filtriraj pojme'
+[glossary_page]
+other = 'Slovar pojmov'
+[footer_about]
+other = 'O portalu'
+[a11y_statement]
+other = 'Izjava o dostopnosti'
+[legal]
+other = 'Pravno obvestilo'
+[service_pending]
+other = 'povezava bo dodana'
+[no_pagefind]
+other = 'Iskalni indeks še ni ustvarjen. Zaženite polni build (hugo build && npx pagefind --site public).'
+[no_items]
+other = 'Za zdaj še ni vsebine.'
+[dark_mode]
+other = 'Temni način'
+[light_mode]
+other = 'Svetli način'

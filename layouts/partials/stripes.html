@@ -1,0 +1,15 @@
+{{- /* Warming stripes for Slovenia from data/stripes_slovenija.json (built by scripts/stripes.mjs). */ -}}
+{{- with site.Data.stripes_slovenija }}
+{{- $n := len .years }}
+{{- $item := site.GetPage "/ucitelji/gradiva/toplotne-crte-slovenija" }}
+<figure class="stripes">
+  <svg class="stripes-bar" viewBox="0 0 {{ $n }} 1" preserveAspectRatio="none" role="img" aria-label="Toplotne črte Slovenije {{ .first }}–{{ .last }}: vsaka črta je eno leto, modre so hladnejša, rdeče toplejša leta od povprečja {{ .reference }}. Zadnja leta so skoraj vsa rdeča.">
+    {{- range $i, $d := .years }}<rect x="{{ $i }}" y="0" width="1.02" height="1" fill="{{ $d.c }}"><title>{{ $d.y }}: {{ if ge $d.a 0 }}+{{ end }}{{ lang.FormatNumber 1 $d.a }} °C</title></rect>{{ end }}
+  </svg>
+  <figcaption>
+    <span>Toplotne črte Slovenije {{ .first }}–{{ .last }}: vsako leto je ena črta, modro hladneje, rdeče topleje od povprečja {{ .reference }}.</span>
+    {{- with $item }} <a href="{{ .RelPermalink }}">Več o prikazu</a>{{ end }}
+    <span class="stripes-source">Vir podatkov: ARSO</span>
+  </figcaption>
+</figure>
+{{- end }}

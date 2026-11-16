@@ -1,0 +1,95 @@
+{{ define "main" }}
+{{ partial "breadcrumb.html" . }}
+{{- $page := . -}}
+<article class="article lesson" data-pagefind-body>
+  {{ partial "pagefind-meta.html" . }}
+  <header class="container article-header">
+    <p class="eyebrow">{{ partial "type-label.html" .Type }}</p>
+    {{ partial "badges.html" . }}
+    <h1 data-pagefind-meta="title">{{ .Title }}</h1>
+    <dl class="meta-strip">
+      {{- with .Params.duration }}<div><dt>{{ i18n "duration" }}</dt><dd>{{ . }} {{ i18n "minutes" }}</dd></div>{{ end }}
+      {{- with .Params.level }}<div><dt>{{ i18n "level" }}</dt><dd>{{ partial "level-name.html" . }}</dd></div>{{ end }}
+      {{- if .Params.razredi }}<div><dt>{{ i18n "grade" }}</dt><dd>{{ range $i, $r := .Params.razredi }}{{ if $i }}, {{ end }}{{ partial "term-title.html" (dict "tax" "razredi" "slug" (printf "%v" $r)) }}{{ end }}</dd></div>{{ end }}
+      {{- if .Params.predmeti }}<div><dt>{{ i18n "subject" }}</dt><dd>{{ range $i, $r := .Params.predmeti }}{{ if $i }}, {{ end }}{{ partial "term-title.html" (dict "tax" "predmeti" "slug" $r) }}{{ end }}</dd></div>{{ end }}
+    </dl>
+  </header>
+
+  <div class="container article-layout">
+    <div class="article-main">
+      {{- with .Content }}<div class="prose">{{ . }}</div>{{ end }}
+
+      {{- with .Params.objectives }}
+      <section class="backmatter" aria-labelledby="ob-h">
+        <h2 id="ob-h">{{ i18n "learning_objectives" }}</h2>
+        <ul>{{ range . }}<li>{{ . | markdownify }}</li>{{ end }}</ul>
+      </section>
+      {{- end }}
+
+      {{- with .Params.materials_needed }}
+      <section class="backmatter" aria-labelledby="mn-h">
+        <h2 id="mn-h">{{ i18n "materials_needed" }}</h2>
+        <ul>{{ range . }}<li>{{ . }}</li>{{ end }}</ul>
+      </section>
+      {{- end }}
+
+      {{- with .Params.steps }}
+      <section class="backmatter" aria-labelledby="steps-h">
+        <h2 id="steps-h">{{ i18n "lesson_flow" }}</h2>
+        <table class="steps">
+          <thead><tr><th scope="col">{{ i18n "duration" }}</th><th scope="col">Dejavnost</th></tr></thead>
+          <tbody>
+            {{- range . }}<tr><td>{{ .minutes }} {{ i18n "minutes" }}</td><td><strong>{{ .title }}</strong>{{ with .description }}<br>{{ . | markdownify }}{{ end }}</td></tr>{{ end }}
+          </tbody>
+        </table>
+      </section>
+      {{- end }}
+
+      {{- with .Params.assessment }}
+      <section class="backmatter" aria-labelledby="as-h">
+        <h2 id="as-h">{{ i18n "assessment" }}</h2>
+        {{ . | markdownify }}
+      </section>
+      {{- end }}
+
+      {{- if .Resources.ByType "application" }}
+      <section id="priloge" class="backmatter" aria-labelledby="dl-h">
+        <h2 id="dl-h">{{ i18n "attachments" }}</h2>
+        {{ partial "downloads.html" . }}
+      </section>
+      {{- end }}
+
+      {{- with .Params.related_articles }}
+      <section class="backmatter" aria-labelledby="ra-h">
+        <h2 id="ra-h">{{ i18n "related_articles" }}</h2>
+        <ul class="plain">
+          {{- range . }}{{ with site.GetPage . }}<li><a href="{{ .RelPermalink }}">{{ .Title }}</a> <span class="muted">· {{ partial "level-name.html" .Params.level }}</span></li>{{ else }}{{ warnf "Lesson %s: unknown article %q" $page.File.Path . }}{{ end }}{{ end }}
+        </ul>
+      </section>
+      {{- end }}
+
+      {{- with .Params.related_media }}
+      <section class="backmatter" aria-labelledby="rm-h">
+        <h2 id="rm-h">{{ i18n "related_media" }}</h2>
+        <ul class="plain">
+          {{- range . }}{{ with site.GetPage (printf "/ucitelji/gradiva/%s" .) }}<li><a href="{{ .RelPermalink }}">{{ .Title }}</a></li>{{ else }}{{ warnf "Lesson %s: unknown media %q" $page.File.Path . }}{{ end }}{{ end }}
+        </ul>
+      </section>
+      {{- end }}
+
+      <section class="backmatter cite-box" aria-labelledby="cite-h">
+        <h2 id="cite-h">{{ i18n "cite_as" }}</h2>
+        <p>{{ if .Params.authors }}{{ delimit .Params.authors ", " }}{{ else }}{{ site.Title }}{{ end }} ({{ (or .Lastmod .Date).Format "2006" }}). {{ .Title }}. {{ site.Title }}. <a href="{{ .Permalink }}">{{ .Permalink }}</a></p>
+      </section>
+    </div>
+    <aside class="article-aside" aria-label="Dodatno">
+      <div class="aside-sticky">
+        {{- if .Resources.ByType "application" }}
+        <section class="side-box" data-accent="ucitelji"><h2>{{ i18n "attachments" }}</h2><p><a class="button" href="#priloge">{{ i18n "download" }}</a></p></section>
+        {{- end }}
+        <section class="side-box"><h2>{{ i18n "last_updated" }}</h2><p><time datetime="{{ (or .Lastmod .Date).Format "2006-01-02" }}">{{ (or .Lastmod .Date).Format "2. 1. 2006" }}</time></p></section>
+      </div>
+    </aside>
+  </div>
+</article>
+{{ end }}

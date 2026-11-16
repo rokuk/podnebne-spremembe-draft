@@ -1,0 +1,15 @@
+{{- if eq .Data.Plural "teme" }}
+<div class="card-grid topic-grid">
+  {{- range .Pages.ByWeight }}
+  <article class="card topic-card">
+    <p class="topic-icon" aria-hidden="true">{{ .Params.icon }}</p>
+    <h2 class="card-title"><a href="{{ .RelPermalink }}">{{ .Title }}</a></h2>
+    {{- with .Params.summary }}<p class="card-text">{{ . }}</p>{{ end }}
+  </article>
+  {{- end }}
+</div>
+{{- else }}
+<ul class="term-list">
+  {{- range .Pages.ByTitle }}<li><a href="{{ .RelPermalink }}">{{ .Title }}</a> <span class="muted">({{ len .Pages }})</span></li>{{ end }}
+</ul>
+{{- end }}

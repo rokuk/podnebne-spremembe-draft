@@ -1,0 +1,8 @@
+{{- $id := .Get 0 -}}
+{{- $n := 0 -}}
+{{- range $i, $s := .Page.Params.sources }}{{ if eq $s.id $id }}{{ $n = add $i 1 }}{{ end }}{{ end -}}
+{{- if $n -}}
+<sup class="cite"><a href="#vir-{{ $n }}" aria-label="Vir {{ $n }}">[{{ $n }}]</a></sup>
+{{- else -}}
+{{- errorf "Unknown source id %q in %s (%s)" $id .Page.File.Path .Position -}}
+{{- end -}}

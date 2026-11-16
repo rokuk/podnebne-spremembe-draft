@@ -1,0 +1,54 @@
+{{- /* Context: a section page. Renders filters + cards for its regular pages. */ -}}
+{{- $items := where .RegularPages "Params.status" "ne" "outline" -}}
+{{- $levels := slice }}{{ $razredi := slice }}{{ $predmeti := slice }}{{ $teme := slice }}{{ $vrste := slice }}
+{{- range $items }}
+  {{- with .Params.level }}{{ $levels = $levels | append . }}{{ end }}
+  {{- range .Params.razredi }}{{ $razredi = $razredi | append (printf "%v" .) }}{{ end }}
+  {{- range .Params.predmeti }}{{ $predmeti = $predmeti | append . }}{{ end }}
+  {{- range .Params.teme }}{{ $teme = $teme | append . }}{{ end }}
+  {{- range .Params.vrste }}{{ $vrste = $vrste | append . }}{{ end }}
+{{- end }}
+{{- $levels = uniq $levels }}{{ $razredi = uniq $razredi }}{{ $predmeti = uniq $predmeti }}{{ $teme = uniq $teme }}{{ $vrste = uniq $vrste }}
+<div class="container listing" data-listing>
+  <form class="filters js-only" aria-label="{{ i18n "filters" }}" data-filters>
+    <h2 class="visually-hidden">{{ i18n "filters" }}</h2>
+    {{- if gt (len $levels) 1 }}
+    <div class="field"><label for="f-stopnja">{{ i18n "level" }}</label>
+      <select id="f-stopnja" data-filter="stopnja"><option value="">{{ i18n "all" }}</option>
+        {{- range $levels }}<option value="{{ . }}">{{ partial "level-name.html" . }}</option>{{ end }}
+      </select></div>
+    {{- end }}
+    {{- if $razredi }}
+    <div class="field"><label for="f-razredi">{{ i18n "grade" }}</label>
+      <select id="f-razredi" data-filter="razredi"><option value="">{{ i18n "all" }}</option>
+        {{- range $razredi }}<option value="{{ . }}">{{ partial "term-title.html" (dict "tax" "razredi" "slug" .) }}</option>{{ end }}
+      </select></div>
+    {{- end }}
+    {{- if $predmeti }}
+    <div class="field"><label for="f-predmeti">{{ i18n "subject" }}</label>
+      <select id="f-predmeti" data-filter="predmeti"><option value="">{{ i18n "all" }}</option>
+        {{- range $predmeti }}<option value="{{ . }}">{{ partial "term-title.html" (dict "tax" "predmeti" "slug" .) }}</option>{{ end }}
+      </select></div>
+    {{- end }}
+    {{- if $teme }}
+    <div class="field"><label for="f-teme">{{ i18n "topic" }}</label>
+      <select id="f-teme" data-filter="teme"><option value="">{{ i18n "all" }}</option>
+        {{- range $teme }}<option value="{{ . }}">{{ partial "term-title.html" (dict "tax" "teme" "slug" .) }}</option>{{ end }}
+      </select></div>
+    {{- end }}
+    {{- if $vrste }}
+    <div class="field"><label for="f-vrste">{{ i18n "type" }}</label>
+      <select id="f-vrste" data-filter="vrste"><option value="">{{ i18n "all" }}</option>
+        {{- range $vrste }}<option value="{{ . }}">{{ partial "term-title.html" (dict "tax" "vrste" "slug" .) }}</option>{{ end }}
+      </select></div>
+    {{- end }}
+    <div class="field field-actions"><button type="reset" class="button button-outline button-small">{{ i18n "reset_filters" }}</button></div>
+  </form>
+  <p class="result-count" role="status" aria-live="polite"><span class="js-only">{{ i18n "results" }}: </span><strong data-count>{{ len $items }}</strong></p>
+  <div class="card-grid" data-cards>
+    {{- range $items.ByDate.Reverse }}{{ partial "card-item.html" . }}{{ end }}
+  </div>
+  <p class="muted" data-empty hidden>{{ i18n "no_results" }}</p>
+  {{- if not $items }}<p>{{ i18n "no_items" }}</p>
+ {{- end }}
+</div>

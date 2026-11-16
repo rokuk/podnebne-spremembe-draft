@@ -1,0 +1,33 @@
+{{ define "main" }}
+{{ partial "breadcrumb.html" . }}
+<div class="container page-head">
+  <h1>{{ .Title }}</h1>
+  <div class="filter-bar js-only">
+    <label for="gl-filter">{{ i18n "glossary_filter" }}</label>
+    <input id="gl-filter" type="search" data-glossary-filter autocomplete="off">
+  </div>
+</div>
+{{- $terms := .RegularPages.ByTitle -}}
+{{- $letters := slice -}}
+{{- $prev := "" -}}
+{{- range $terms }}{{ $l := upper (substr .Title 0 1) }}{{ if ne $l $prev }}{{ $letters = $letters | append $l }}{{ $prev = $l }}{{ end }}{{ end }}
+<div class="container">
+  <nav class="letter-strip" aria-label="Abecedno kazalo">
+    <ul>{{ range $letters }}<li><a href="#c-{{ . | urlize }}">{{ . }}</a></li>{{ end }}</ul>
+  </nav>
+  {{- $cur := "" }}
+  {{- range $terms }}
+    {{- $l := upper (substr .Title 0 1) }}
+    {{- if ne $l $cur }}
+      {{- if $cur }}</dl></section>{{ end }}
+      <section class="letter-group" id="c-{{ $l | urlize }}" aria-labelledby="h-{{ $l | urlize }}">
+      <h2 id="h-{{ $l | urlize }}" class="letter">{{ $l }}</h2>
+      <dl class="glossary-index">
+      {{- $cur = $l }}
+    {{- end }}
+    <div class="gl-entry" data-term="{{ .Title | lower }}"><dt><a href="{{ .RelPermalink }}">{{ .Title }}</a></dt><dd>{{ .Params.short | markdownify }}</dd></div>
+  {{- end }}
+  {{- if $cur }}</dl></section>{{ end }}
+  <p class="muted js-only" data-glossary-empty hidden>{{ i18n "no_results" }}</p>
+</div>
+{{ end }}

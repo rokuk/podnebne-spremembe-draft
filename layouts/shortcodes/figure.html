@@ -1,0 +1,12 @@
+{{- $src := .Get "src" -}}
+{{- $alt := .Get "alt" -}}
+{{- if not $alt }}{{ errorf "figure: missing alt text for %q (%s)" $src .Position }}{{ end -}}
+{{- $img := .Page.Resources.GetMatch $src -}}
+{{- $url := $src -}}
+{{- with $img }}{{ $url = .RelPermalink }}{{ else }}{{ errorf "figure: %q not found in bundle of %s (%s)" $src $.Page.File.Path $.Position }}{{ end -}}
+<figure class="figure">
+  <img src="{{ $url }}" alt="{{ $alt }}" loading="lazy">
+  {{- with or (.Get "caption") (.Get "credit") }}
+  <figcaption>{{ with $.Get "caption" }}{{ . }}{{ end }}{{ with $.Get "credit" }}<span class="credit"> {{ . }}</span>{{ end }}</figcaption>
+  {{- end }}
+</figure>

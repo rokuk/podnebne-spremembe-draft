@@ -1,0 +1,30 @@
+{{- /* Generic resource card (lesson plan, worksheet, media item, news). Carries data-* attributes for client-side filtering. */ -}}
+{{- $p := . -}}
+{{- $thumb := .Resources.GetMatch "thumb.*" -}}
+{{- if not $thumb }}{{ $thumb = .Resources.GetMatch "main.*" }}{{ end -}}
+<article class="card card-item" data-accent="{{ or .Params.level "ucitelji" }}"
+  data-stopnja="{{ .Params.level }}"
+  data-razredi="{{ delimit (apply (default (slice) .Params.razredi) "printf" "%v" ".") " " }}"
+  data-predmeti="{{ delimit (default (slice) .Params.predmeti) " " }}"
+  data-teme="{{ delimit (default (slice) .Params.teme) " " }}"
+  data-vrste="{{ delimit (default (slice) .Params.vrste) " " }}">
+  {{- if $thumb }}
+  <a class="card-thumb" href="{{ .RelPermalink }}" tabindex="-1" aria-hidden="true"><img src="{{ $thumb.RelPermalink }}" alt="" loading="lazy"></a>
+  {{- end }}
+  <p class="card-kicker">
+    {{ partial "type-label.html" .Type }}
+    {{- with .Params.level }} · {{ partial "level-name.html" . }}{{ end }}
+    {{- if and (eq .Type "novica") .Date }} · <time datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date.Format "2. 1. 2006" }}</time>{{ end }}
+  </p>
+  <h3 class="card-title"><a href="{{ .RelPermalink }}">{{ .Title }}</a></h3>
+  {{- $sum := "" }}{{ with .Params.summary }}{{ $sum = . }}{{ else }}{{ with .Params.abstract }}{{ $sum = . }}{{ else }}{{ with .Description }}{{ $sum = . }}{{ end }}{{ end }}{{ end }}
+  {{- with $sum }}<p class="card-text">{{ . | markdownify | plainify | truncate 150 }}</p>{{ end }}
+  <ul class="card-meta" role="list">
+    {{- with .Params.duration }}<li>{{ . }} {{ i18n "minutes" }}</li>{{ end }}
+    {{- range first 2 (default (slice) .Params.razredi) }}<li>{{ partial "term-title.html" (dict "tax" "razredi" "slug" (printf "%v" .)) }}</li>{{ end }}
+    {{- range first 2 (default (slice) .Params.predmeti) }}<li>{{ partial "term-title.html" (dict "tax" "predmeti" "slug" .) }}</li>{{ end }}
+    {{- range first 1 (default (slice) .Params.vrste) }}<li>{{ partial "term-title.html" (dict "tax" "vrste" "slug" .) }}</li>{{ end }}
+    {{- $files := .Resources.ByType "application" }}
+    {{- if $files }}<li>{{ len $files }} {{ if eq (len $files) 1 }}datoteka{{ else if eq (len $files) 2 }}datoteki{{ else }}datotek{{ end }}</li>{{ end }}
+  </ul>
+</article>

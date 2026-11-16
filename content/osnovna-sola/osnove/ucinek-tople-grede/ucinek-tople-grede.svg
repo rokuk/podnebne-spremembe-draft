@@ -1,0 +1,45 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 470" role="img" aria-labelledby="t d" font-family="system-ui, 'Segoe UI', Arial, sans-serif">
+  <title id="t">Shema učinka tople grede</title>
+  <desc id="d">Sončni žarki prihajajo skozi ozračje in segrejejo površje Zemlje. Del sevanja se odbije v vesolje. Površje oddaja infrardeče sevanje, del ga uide v vesolje, del pa ga toplogredni plini v ozračju vpijejo in ga delno vrnejo proti površju.</desc>
+  <defs>
+    <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#0b1d3a"/><stop offset=".35" stop-color="#1e4a7a"/><stop offset="1" stop-color="#9fd0ef"/></linearGradient>
+    <marker id="aO" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#ffb02e"/></marker>
+    <marker id="aR" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#ff6b5a"/></marker>
+    <marker id="aW" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#ffffff"/></marker>
+  </defs>
+  <rect width="800" height="470" fill="url(#sky)"/>
+  <!-- atmosphere with greenhouse gases -->
+  <rect x="0" y="175" width="800" height="95" fill="#ffffff" opacity=".22"/>
+  <g fill="#e8eef5" stroke="#5b6b7c" stroke-width="1.2" opacity=".95">
+    <circle cx="470" cy="205" r="9"/><circle cx="505" cy="240" r="9"/><circle cx="540" cy="203" r="9"/>
+    <circle cx="590" cy="238" r="9"/><circle cx="640" cy="208" r="9"/><circle cx="690" cy="236" r="9"/>
+  </g>
+  <!-- sun -->
+  <circle cx="80" cy="70" r="38" fill="#ffd34d"/>
+  <g stroke="#ffd34d" stroke-width="4" stroke-linecap="round"><path d="M80 14v-12M80 126v12M24 70H12M136 70h12M40 30l-8-8M120 110l8 8M40 110l-8 8M120 30l8-8"/></g>
+  <!-- ground -->
+  <rect x="0" y="372" width="800" height="98" fill="#4a7c4e"/>
+  <rect x="0" y="372" width="800" height="8" fill="#2f5a34"/>
+  <!-- incoming sunlight -->
+  <path d="M118 92 L250 360" stroke="#ffb02e" stroke-width="5" fill="none" marker-end="url(#aO)"/>
+  <path d="M130 70 L330 150" stroke="#ffb02e" stroke-width="5" fill="none" opacity=".0"/>
+  <!-- reflected sunlight -->
+  <path d="M215 175 L330 60" stroke="#ffffff" stroke-width="4" stroke-dasharray="9 7" fill="none" marker-end="url(#aW)"/>
+  <!-- infrared from surface escaping to space -->
+  <path d="M390 366 L390 40" stroke="#ff6b5a" stroke-width="5" fill="none" marker-end="url(#aR)"/>
+  <!-- infrared absorbed and re-emitted -->
+  <path d="M560 366 L560 256" stroke="#ff6b5a" stroke-width="5" fill="none"/>
+  <path d="M560 256 L560 170" stroke="#ff6b5a" stroke-width="5" stroke-dasharray="3 7" fill="none" opacity=".55"/>
+  <path d="M600 262 L690 362" stroke="#ff6b5a" stroke-width="5" fill="none" marker-end="url(#aR)"/>
+  <!-- labels -->
+  <g font-size="21" font-weight="700" fill="#ffffff" stroke="#0b1d3a" stroke-width="4" paint-order="stroke" stroke-linejoin="round">
+    <text x="205" y="262" transform="rotate(63 205 262)" fill="#ffe2b0">Sončno sevanje</text>
+    <text x="312" y="62" text-anchor="end">Del se odbije</text>
+    <text x="364" y="330" transform="rotate(-90 364 330)" fill="#ffd9d3">Infrardeče sevanje s površja</text>
+    <text x="410" y="70" fill="#ffd9d3">Del uide v vesolje</text>
+    <text x="610" y="316" transform="rotate(45 610 316)" fill="#ffd9d3">Del se vrne</text>
+    <text x="470" y="160" fill="#ffffff">Toplogredni plini v ozračju</text>
+    <text x="20" y="428" font-size="22">Površje Zemlje</text>
+    <text x="780" y="32" text-anchor="end" font-size="22">Vesolje</text>
+  </g>
+</svg>

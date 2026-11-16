@@ -1,0 +1,33 @@
+{{- $term := . -}}
+{{- $visible := where .Pages "Params.status" "ne" "outline" -}}
+{{- if site.Params.showOutlines }}{{ $visible = .Pages }}{{ end -}}
+{{- $isTopic := eq .Data.Plural "teme" -}}
+{{- if $isTopic }}
+  {{- $articles := where $visible "Type" "clanek" }}
+  <h2>{{ i18n "articles" }}</h2>
+  {{- range site.Data.levels }}
+    {{- $lvl := .slug }}
+    {{- $inLevel := where $articles "Params.level" $lvl }}
+    {{- if $inLevel }}
+    <section class="band" data-accent="{{ $lvl }}" aria-labelledby="lvl-{{ $lvl }}">
+      <h3 id="lvl-{{ $lvl }}" class="band-title">{{ .name }}</h3>
+      <div class="card-grid">
+        {{- range $inLevel.ByWeight }}{{ partial "card-article.html" . }}{{ end }}
+      </div>
+    </section>
+    {{- end }}
+  {{- end }}
+  {{- $res := where $visible "Type" "in" (slice "priprava" "gradivo" "multimedija") }}
+  {{- if $res }}
+  <h2>{{ i18n "materials_for_teachers" }} · {{ i18n "multimedia" }}</h2>
+  <div class="card-grid">
+    {{- range $res.ByTitle }}{{ partial "card-item.html" . }}{{ end }}
+  </div>
+  {{- end }}
+{{- else }}
+  <div class="card-grid">
+    {{- range $visible.ByTitle }}
+      {{- if eq .Type "clanek" }}{{ partial "card-article.html" . }}{{ else }}{{ partial "card-item.html" . }}{{ end }}
+    {{- end }}
+  </div>
+{{- end }}

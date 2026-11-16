@@ -1,0 +1,23 @@
+{{ define "main" }}
+{{ partial "breadcrumb.html" . }}
+<article class="article resource" data-pagefind-body>
+  {{ partial "pagefind-meta.html" . }}
+  <header class="container article-header">
+    <p class="eyebrow">{{ partial "type-label.html" .Type }}</p>
+    {{ partial "badges.html" . }}
+    <h1 data-pagefind-meta="title">{{ .Title }}</h1>
+    <dl class="meta-strip">
+      {{- with .Params.duration }}<div><dt>{{ i18n "duration" }}</dt><dd>{{ . }} {{ i18n "minutes" }}</dd></div>{{ end }}
+      {{- if .Params.vrste }}<div><dt>{{ i18n "type" }}</dt><dd>{{ range $i, $r := .Params.vrste }}{{ if $i }}, {{ end }}{{ partial "term-title.html" (dict "tax" "vrste" "slug" $r) }}{{ end }}</dd></div>{{ end }}
+    </dl>
+  </header>
+  <div class="container narrow">
+    {{- with .Params.summary }}<p class="lead">{{ . }}</p>{{ end }}
+    {{- with .Content }}<div class="prose">{{ . }}</div>{{ end }}
+    <section class="backmatter" aria-labelledby="dl-h">
+      <h2 id="dl-h">{{ i18n "attachments" }}</h2>
+      {{ partial "downloads.html" . }}
+    </section>
+  </div>
+</article>
+{{ end }}

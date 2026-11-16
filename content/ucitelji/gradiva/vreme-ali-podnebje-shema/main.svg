@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 360" role="img" aria-labelledby="t d" font-family="system-ui, 'Segoe UI', Arial, sans-serif">
+  <title id="t">Vreme in podnebje (konceptualna shema)</title>
+  <desc id="d">Nihajoča črta prikazuje spreminjanje vremena iz dneva v dan, vodoravna črtkana črta pa dolgoletno povprečje, ki ga imenujemo podnebje.</desc>
+  <rect width="760" height="360" fill="#f7faf9"/>
+  <path d="M60 30V300H720" fill="none" stroke="#33423d" stroke-width="2"/>
+  <polyline points="60,200 90,150 120,230 150,120 180,210 210,170 240,250 270,140 300,220 330,160 360,240 390,130 420,200 450,170 480,235 510,150 540,215 570,165 600,225 630,155 660,205 700,180" fill="none" stroke="#0b6b63" stroke-width="3" stroke-linejoin="round"/>
+  <line x1="60" y1="190" x2="720" y2="190" stroke="#a14a08" stroke-width="3" stroke-dasharray="10 7"/>
+  <text x="70" y="50" font-size="16" font-weight="700" fill="#0b6b63">Vreme: spreminja se iz dneva v dan</text>
+  <text x="70" y="176" font-size="16" font-weight="700" fill="#a14a08">Podnebje: dolgoletno povprečje (običajno 30 let)</text>
+  <text x="390" y="335" font-size="15" fill="#33423d" text-anchor="middle">Čas</text>
+  <text x="20" y="165" font-size="15" fill="#33423d" transform="rotate(-90 20 165)" text-anchor="middle">Vrednost (npr. temperatura)</text>
+</svg>

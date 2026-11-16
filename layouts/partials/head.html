@@ -1,0 +1,22 @@
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script>document.documentElement.classList.add('js');try{if(localStorage.getItem('theme')==='dark')document.documentElement.setAttribute('data-theme','dark')}catch(e){}</script>
+{{- $desc := "" -}}
+{{- with .Params.abstract }}{{ $desc = . | plainify | truncate 200 }}{{ else }}{{ with .Description }}{{ $desc = . }}{{ else }}{{ with .Summary }}{{ if not $.IsHome }}{{ $desc = . | plainify | truncate 200 }}{{ end }}{{ end }}{{ end }}{{ end -}}
+{{- if not $desc }}{{ $desc = site.Params.description }}{{ end -}}
+<title>{{ if .IsHome }}{{ site.Title }}{{ else }}{{ .Title }} · {{ site.Title }}{{ end }}</title>
+<meta name="description" content="{{ $desc }}">
+<link rel="canonical" href="{{ .Permalink }}">
+{{ if or (eq .Params.status "outline") (eq .Type "search") }}<meta name="robots" content="noindex, follow">{{ end }}
+<meta property="og:title" content="{{ .Title }}">
+<meta property="og:description" content="{{ $desc }}">
+<meta property="og:type" content="{{ if .IsPage }}article{{ else }}website{{ end }}">
+<meta property="og:url" content="{{ .Permalink }}">
+<meta property="og:locale" content="sl_SI">
+<meta name="theme-color" content="#0f5c4d">
+<link rel="icon" href="{{ "favicon.svg" | relURL }}" type="image/svg+xml">
+{{- $css := resources.Get "css/main.css" }}
+{{- if eq site.Params.design "b" }}{{ $css = slice $css (resources.Get "css/design-b.css") | resources.Concat "css/site-b.css" }}{{ end }}
+{{- $css = $css | fingerprint }}
+<link rel="stylesheet" href="{{ $css.RelPermalink }}">
+{{ with .OutputFormats.Get "rss" }}<link rel="alternate" type="application/rss+xml" title="{{ site.Title }}" href="{{ .RelPermalink }}">{{ end }}

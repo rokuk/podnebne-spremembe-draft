@@ -1,0 +1,47 @@
+{{ define "main" }}
+{{ partial "breadcrumb.html" . }}
+<div class="container page-head">
+  <h1>{{ .Title }}</h1>
+</div>
+<div class="container search-page">
+  <div id="search" data-no-index="{{ i18n "no_pagefind" }}"></div>
+  <noscript><p>Iskanje potrebuje JavaScript. Vsebino lahko brskate prek glavnega menija.</p></noscript>
+</div>
+{{ end }}
+{{ define "scripts" }}
+<link rel="stylesheet" href="{{ "pagefind/pagefind-ui.css" | relURL }}">
+<script src="{{ "pagefind/pagefind-ui.js" | relURL }}" defer onerror="window.__pagefindMissing = true"></script>
+<script>
+window.addEventListener('DOMContentLoaded', function () {
+  var el = document.getElementById('search');
+  function init() {
+    if (typeof PagefindUI === 'undefined') {
+      el.innerHTML = '<p class="notice">' + el.dataset.noIndex + '</p>';
+      return;
+    }
+    var ui = new PagefindUI({
+      element: '#search',
+      showImages: false,
+      showSubResults: false,
+      resetStyles: false,
+      translations: {
+        placeholder: 'Poiščite članek, pojem ali gradivo',
+        clear_search: 'Počisti',
+        load_more: 'Naloži več rezultatov',
+        search_label: 'Iskanje po portalu',
+        filters_label: 'Filtri',
+        zero_results: 'Ni zadetkov za [SEARCH_TERM]',
+        many_results: '[COUNT] zadetkov za [SEARCH_TERM]',
+        one_result: '[COUNT] zadetek za [SEARCH_TERM]',
+        alt_search: 'Ni zadetkov za [SEARCH_TERM]. Prikazani so zadetki za [DIFFERENT_TERM]',
+        search_suggestion: 'Ni zadetkov za [SEARCH_TERM]. Poskusite z enim od naslednjih iskanj:',
+        searching: 'Iščem [SEARCH_TERM] …'
+      }
+    });
+    var q = new URLSearchParams(location.search).get('q');
+    if (q) ui.triggerSearch(q);
+  }
+  setTimeout(init, 300);
+});
+</script>
+{{ end }}

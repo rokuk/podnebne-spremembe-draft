@@ -1,0 +1,4 @@
+{{- /* Context: dict "tax" "predmeti" "slug" "geografija". Returns the human title of the taxonomy term page, or the slug. */ -}}
+{{- $t := .slug -}}
+{{- with site.GetPage (printf "/%s/%s" .tax .slug) }}{{ $t = .Title }}{{ end -}}
+{{- return $t -}}

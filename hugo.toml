@@ -1,0 +1,84 @@
+baseURL = 'https://example.org/'
+title = 'Podnebni izobraževalni portal'
+defaultContentLanguage = 'sl'
+enableRobotsTXT = true
+timeZone = 'Europe/Ljubljana'
+
+# Taxonomy keys are used in front matter (e.g. `teme: [osnove]`).
+[taxonomies]
+  tema = 'teme'
+  predmet = 'predmeti'
+  razred = 'razredi'
+  vrsta = 'vrste'
+
+[pagination]
+  pagerSize = 9
+
+[markup]
+  [markup.goldmark]
+    [markup.goldmark.renderer]
+      # Content is authored by the project team only; needed so {{% callout %}} output (HTML) is kept.
+      unsafe = true
+    [markup.goldmark.parser]
+      wrapStandAloneImageWithinParagraph = false
+  [markup.tableOfContents]
+    startLevel = 2
+    endLevel = 3
+    ordered = false
+
+[params]
+  # Visual design: 'a' = original (green, sticky header, gradient hero), 'b' = alternative (warm editorial, serif headings).
+  design = 'b'
+  description = 'Izobraževalni portal o podnebnih spremembah in prilagajanju: članki, učne priprave, gradiva za prenos in multimedija za učitelje, dijake, strokovnjake in odločevalce.'
+  # Show skeleton ("v pripravi") articles in lists. Set to false for a production launch without outlines.
+  showOutlines = true
+  licenseName = 'CC BY 4.0'
+  licenseUrl = 'https://creativecommons.org/licenses/by/4.0/deed.sl'
+  contactEmail = ''
+  # Linked services of the wider project. Leave `url` empty until the address is known.
+  [[params.services]]
+    name = 'Podnebni servisni center'
+    description = 'Podnebni podatki in storitve'
+    url = ''
+  [[params.services]]
+    name = 'Podnebni portal'
+    description = 'Dobre prakse in podnebne informacije'
+    url = ''
+  [[params.services]]
+    name = 'ARSO – podnebje'
+    description = 'Uradni podatki o podnebju Slovenije'
+    url = 'https://meteo.arso.gov.si/met/sl/climate/'
+
+[menus]
+  [[menus.main]]
+    name = 'Osnovna šola'
+    pageRef = '/osnovna-sola'
+    weight = 10
+  [[menus.main]]
+    name = 'Srednja šola'
+    pageRef = '/srednja-sola'
+    weight = 20
+  [[menus.main]]
+    name = 'Strokovnjaki'
+    pageRef = '/strokovnjaki'
+    weight = 30
+  [[menus.main]]
+    name = 'Učitelji'
+    pageRef = '/ucitelji'
+    weight = 40
+  [[menus.main]]
+    name = 'Slovar pojmov'
+    pageRef = '/glosar'
+    weight = 50
+  [[menus.main]]
+    name = 'Novice'
+    pageRef = '/novice'
+    weight = 60
+    [menus.main.params]
+      right = true
+  [[menus.main]]
+    name = 'O projektu'
+    pageRef = '/o-projektu'
+    weight = 70
+    [menus.main.params]
+      right = true

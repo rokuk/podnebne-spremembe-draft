@@ -1,0 +1,5 @@
+<article class="card" data-accent="{{ .Params.level }}">
+  <p class="card-kicker">{{ partial "level-name.html" .Params.level }}{{ if eq .Params.status "outline" }} · <span class="badge badge-muted">{{ i18n "under_construction" }}</span>{{ end }}</p>
+  <h3 class="card-title"><a href="{{ .RelPermalink }}">{{ .Title }}</a></h3>
+  {{- with .Params.abstract }}<p class="card-text">{{ . | markdownify | plainify | truncate 160 }}</p>{{ end }}
+</article>

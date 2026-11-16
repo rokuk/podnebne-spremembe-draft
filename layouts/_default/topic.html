@@ -1,0 +1,57 @@
+{{ define "main" }}
+{{ partial "breadcrumb.html" . }}
+{{- $lvl := .Params.level -}}
+{{- $topic := .Params.topic -}}
+<div class="container page-head level-head">
+  <p class="eyebrow">{{ partial "level-name.html" $lvl }}</p>
+  <h1>{{ .Title }}</h1>
+</div>
+
+<div class="container two-col">
+  <section class="main-col" aria-labelledby="path-h">
+    <h2 id="path-h" class="section-title">{{ i18n "learning_path" }}</h2>
+    {{- $items := .RegularPages.ByWeight }}
+    {{- if not site.Params.showOutlines }}{{ $items = where $items "Params.status" "ne" "outline" }}{{ end }}
+    {{- if $items }}
+    <ol class="path">
+      {{- range $items }}
+      <li class="path-item{{ if eq .Params.status "outline" }} is-outline{{ end }}">
+        <h3><a href="{{ .RelPermalink }}">{{ .Title }}</a>{{ if eq .Params.status "outline" }} <span class="badge badge-muted">{{ i18n "under_construction" }}</span>{{ end }}</h3>
+        {{- with .Params.abstract }}<p>{{ . | markdownify | plainify | truncate 200 }}</p>{{ end }}
+      </li>
+      {{- end }}
+    </ol>
+    {{- else }}<p>{{ i18n "no_items" }}</p>{{ end }}
+  </section>
+
+  <aside class="side-col" aria-label="Dodatno">
+    {{- $term := site.GetPage (printf "/teme/%s" $topic) }}
+    {{- with $term }}
+    {{- $mat := where (where .Pages "Params.level" $lvl) "Type" "in" (slice "priprava" "gradivo") }}
+    {{- if $mat }}
+    <section class="side-box" data-accent="ucitelji">
+      <h2>{{ i18n "materials_for_teachers" }}</h2>
+      <ul class="plain">{{ range first 5 $mat }}<li><a href="{{ .RelPermalink }}">{{ .Title }}</a></li>{{ end }}</ul>
+    </section>
+    {{- end }}
+    {{- $media := where .Pages "Type" "multimedija" }}
+    {{- if $media }}
+    <section class="side-box">
+      <h2>{{ i18n "multimedia" }}</h2>
+      <ul class="plain">{{ range first 5 $media }}<li><a href="{{ .RelPermalink }}">{{ .Title }}</a></li>{{ end }}</ul>
+    </section>
+    {{- end }}
+    {{- end }}
+    <section class="side-box">
+      <h2>{{ i18n "topics_other_levels" }}</h2>
+      <ul class="plain">
+        {{- range site.Data.levels }}{{ if ne .slug $lvl }}
+        {{- with site.GetPage (printf "/%s/%s" .slug $topic) }}
+        <li><a href="{{ .RelPermalink }}">{{ partial "level-name.html" .Params.level }}</a></li>
+        {{- end }}{{ end }}{{ end }}
+        {{- with $term }}<li><a href="{{ .RelPermalink }}">Vse stopnje – {{ .Title }}</a></li>{{ end }}
+      </ul>
+    </section>
+  </aside>
+</div>
+{{ end }}

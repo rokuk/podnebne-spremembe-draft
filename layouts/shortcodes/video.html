@@ -1,0 +1,13 @@
+{{- /* Self-hosted video with Slovenian captions: {{< video src="x.mp4" poster="x.jpg" vtt="x.sl.vtt" title="…" >}} (files in the page bundle or absolute URLs). */ -}}
+{{- $res := .Page.Resources -}}
+{{- $src := .Get "src" -}}{{- with $res.GetMatch $src }}{{ $src = .RelPermalink }}{{ end -}}
+{{- $poster := .Get "poster" -}}{{- with $res.GetMatch $poster }}{{ $poster = .RelPermalink }}{{ end -}}
+{{- $vtt := .Get "vtt" -}}{{- with $res.GetMatch $vtt }}{{ $vtt = .RelPermalink }}{{ end -}}
+<figure class="figure video">
+  <video controls preload="none"{{ with $poster }} poster="{{ . }}"{{ end }} aria-label="{{ .Get "title" }}">
+    <source src="{{ $src }}" type="video/mp4">
+    {{- with $vtt }}<track kind="captions" src="{{ . }}" srclang="sl" label="Slovenščina" default>{{ end }}
+    Vaš brskalnik ne podpira predvajanja videa.
+  </video>
+  {{- with .Get "title" }}<figcaption>{{ . }}</figcaption>{{ end }}
+</figure>

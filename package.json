@@ -1,0 +1,15 @@
+{
+  "name": "podnebni-izobrazevalni-portal",
+  "private": true,
+  "description": "Hugo-based Slovenian climate education portal",
+  "scripts": {
+    "dev": "hugo server",
+    "build": "hugo build --gc --minify",
+    "search-index": "pagefind --site public",
+    "build:full": "npm run build && npm run search-index",
+    "check-links": "node scripts/check-links.mjs"
+  },
+  "devDependencies": {
+    "pagefind": "^1.3.0"
+  }
+}

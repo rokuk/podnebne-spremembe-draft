@@ -1,0 +1,19 @@
+{{- /* Fallback for sections without a dedicated layout, taxonomy lists and term pages. */ -}}
+{{ define "main" }}
+{{ partial "breadcrumb.html" . }}
+<div class="container page-head">
+  <h1>{{ .Title }}</h1>
+  {{ with .Content }}<div class="prose lead-block">{{ . }}</div>{{ end }}
+</div>
+<div class="container">
+{{- if eq .Kind "term" }}
+  {{ partial "view-term.html" . }}
+{{- else if eq .Kind "taxonomy" }}
+  {{ partial "view-taxonomy.html" . }}
+{{- else }}
+  <div class="card-grid">
+    {{- range .Pages }}{{ partial "card-item.html" . }}{{ end }}
+  </div>
+{{- end }}
+</div>
+{{ end }}

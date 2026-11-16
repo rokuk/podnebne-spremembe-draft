@@ -1,0 +1,77 @@
+{{ define "main" }}
+<section class="hero" aria-labelledby="hero-title">
+  <div class="container hero-inner">
+    <h1 id="hero-title">{{ .Params.hero_title | default site.Title }}</h1>
+    <p class="hero-lead">{{ .Params.hero_lead }}</p>
+    <form class="hero-search" role="search" action="{{ "iskanje/" | relURL }}" method="get">
+      <label class="visually-hidden" for="hero-q">{{ i18n "search" }}</label>
+      <input id="hero-q" type="search" name="q" placeholder="{{ i18n "search_placeholder" }}" autocomplete="off">
+      <button type="submit" class="button">{{ i18n "search_go" }}</button>
+    </form>
+    {{ partial "stripes.html" . }}
+  </div>
+</section>
+
+<section class="container section" aria-labelledby="aud-title">
+  <h2 id="aud-title" class="visually-hidden">Stopnje izobraževanja</h2>
+  <div class="audience-grid">
+    {{- range site.Data.levels }}
+    {{- $pg := site.GetPage (printf "/%s" .slug) }}
+    <a class="audience-card" data-accent="{{ .slug }}" href="{{ $pg.RelPermalink }}">
+      <span class="audience-abbr" aria-hidden="true">{{ .short }}</span>
+      <span class="audience-name">{{ .name }}</span>
+      <span class="audience-desc">{{ .audience }}</span>
+    </a>
+    {{- end }}
+    <a class="audience-card" data-accent="ucitelji" href="{{ "ucitelji/" | relURL }}">
+      <span class="audience-abbr" aria-hidden="true">UČ</span>
+      <span class="audience-name">{{ i18n "for_teachers" }}</span>
+      <span class="audience-desc">Učne priprave, učni listi in gradiva za prenos, razvrščena po razredu, predmetu in temi</span>
+    </a>
+  </div>
+</section>
+
+
+
+{{- with site.GetPage "/teme" }}
+<section class="container section" aria-labelledby="topics-title">
+  <div class="section-head">
+    <h2 id="topics-title" class="section-title">{{ i18n "topics" }}</h2>
+  </div>
+  <div class="card-grid topic-grid">
+    {{- range .Pages.ByWeight }}
+    {{- $n := len (where (where .Pages "Type" "clanek") "Params.status" "ne" "outline") }}
+    <article class="card topic-card">
+      <p class="topic-icon" aria-hidden="true">{{ .Params.icon }}</p>
+      <h3 class="card-title"><a href="{{ .RelPermalink }}">{{ .Title }}</a></h3>
+      {{- if eq $n 0 }}<p class="card-meta"><span class="badge badge-muted">{{ i18n "under_construction" }}</span></p>{{ end }}
+    </article>
+    {{- end }}
+  </div>
+</section>
+{{- end }}
+
+
+<section class="container section data-panel" aria-labelledby="data-title">
+  <h2 id="data-title" class="section-title">Povezani portali</h2>
+  <ul class="link-row">
+    {{- range site.Params.services }}
+    <li>{{ if .url }}<a class="button button-outline" href="{{ .url }}" rel="noopener">{{ .name }}</a>{{ else }}<span class="button button-outline is-disabled" aria-disabled="true">{{ .name }} ({{ i18n "service_pending" }})</span>{{ end }}</li>
+    {{- end }}
+  </ul>
+</section>
+
+{{- with site.GetPage "/novice" }}
+{{- if .RegularPages }}
+<section class="container section" aria-labelledby="news-title">
+  <div class="section-head">
+    <h2 id="news-title" class="section-title">{{ i18n "latest_news" }}</h2>
+    <a class="more" href="{{ .RelPermalink }}">{{ i18n "show_all" }} →</a>
+  </div>
+  <div class="card-grid">
+    {{- range first 3 .RegularPages.ByDate.Reverse }}{{ partial "card-item.html" . }}{{ end }}
+  </div>
+</section>
+{{- end }}
+{{- end }}
+{{ end }}
