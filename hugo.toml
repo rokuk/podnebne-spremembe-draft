@@ -37,13 +37,13 @@ timeZone = 'Europe/Ljubljana'
   contactEmail = ''
   # Linked services of the wider project. Leave `url` empty until the address is known.
   [[params.services]]
-    name = 'Podnebni servisni center'
-    description = 'Podnebni podatki in storitve'
-    url = ''
-  [[params.services]]
     name = 'Podnebni portal'
     description = 'Dobre prakse in podnebne informacije'
     url = ''
+  [[params.services]]
+    name = 'Atlas podnebnih projekcij'
+    description = 'Podnebne projekcije za Slovenijo (ARSO)'
+    url = 'https://meteo.arso.gov.si/uploads/probase/www/climate/OPS21/Priloge-app/#/izbor'
   [[params.services]]
     name = 'ARSO – podnebje'
     description = 'Uradni podatki o podnebju Slovenije'

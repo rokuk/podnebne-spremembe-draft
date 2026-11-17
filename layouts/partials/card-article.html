@@ -1,5 +1,7 @@
-<article class="card" data-accent="{{ .Params.level }}">
-  <p class="card-kicker">{{ partial "level-name.html" .Params.level }}{{ if eq .Params.status "outline" }} · <span class="badge badge-muted">{{ i18n "under_construction" }}</span>{{ end }}</p>
-  <h3 class="card-title"><a href="{{ .RelPermalink }}">{{ .Title }}</a></h3>
-  {{- with .Params.abstract }}<p class="card-text">{{ . | markdownify | plainify | truncate 160 }}</p>{{ end }}
+{{- /* Article card. Context: dict "page" <page> "abstract" <bool> (show the abstract excerpt). */ -}}
+{{- $p := .page -}}
+<article class="card" data-accent="{{ $p.Params.level }}">
+  <p class="card-kicker">{{ partial "level-name.html" $p.Params.level }}{{ if eq $p.Params.status "outline" }} · <span class="badge badge-muted">{{ i18n "under_construction" }}</span>{{ end }}</p>
+  <h3 class="card-title"><a href="{{ $p.RelPermalink }}">{{ $p.Title }}</a></h3>
+  {{- if .abstract }}{{ with $p.Params.abstract }}<p class="card-text">{{ . | markdownify | plainify | truncate 160 }}</p>{{ end }}{{ end }}
 </article>

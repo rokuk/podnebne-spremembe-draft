@@ -14,8 +14,10 @@ npm install && npm run build:full   # production build + Pagefind search index i
 npm run check-links              # internal link and anchor check (run after a build)
 ```
 
-Developed with Hugo 0.145; the code uses the classic layout names (`layouts/_default`, `layouts/partials`, `layouts/shortcodes`)
-which newer Hugo versions still support. When upgrading to Hugo 0.146+ check the build log for deprecation notices.
+Requires Hugo **0.156 or newer** (extended edition recommended; tested with 0.170). On Windows: `winget install Hugo.Hugo.Extended`.
+Templates read data files via `hugo.Data` (added in 0.156, replaces the deprecated `site.Data`). The code uses the classic
+layout names (`layouts/_default`, `layouts/partials`, `layouts/shortcodes`), which current Hugo versions still support.
+When upgrading Hugo, check the build log for deprecation notices.
 
 ## Structure
 

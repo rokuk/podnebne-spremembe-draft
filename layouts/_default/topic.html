@@ -3,7 +3,6 @@
 {{- $lvl := .Params.level -}}
 {{- $topic := .Params.topic -}}
 <div class="container page-head level-head">
-  <p class="eyebrow">{{ partial "level-name.html" $lvl }}</p>
   <h1>{{ .Title }}</h1>
 </div>
 
@@ -45,7 +44,7 @@
     <section class="side-box">
       <h2>{{ i18n "topics_other_levels" }}</h2>
       <ul class="plain">
-        {{- range site.Data.levels }}{{ if ne .slug $lvl }}
+        {{- range hugo.Data.levels }}{{ if ne .slug $lvl }}
         {{- with site.GetPage (printf "/%s/%s" .slug $topic) }}
         <li><a href="{{ .RelPermalink }}">{{ partial "level-name.html" .Params.level }}</a></li>
         {{- end }}{{ end }}{{ end }}

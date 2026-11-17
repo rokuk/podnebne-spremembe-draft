@@ -5,14 +5,14 @@
 {{- if $isTopic }}
   {{- $articles := where $visible "Type" "clanek" }}
   <h2>{{ i18n "articles" }}</h2>
-  {{- range site.Data.levels }}
+  {{- range hugo.Data.levels }}
     {{- $lvl := .slug }}
     {{- $inLevel := where $articles "Params.level" $lvl }}
     {{- if $inLevel }}
     <section class="band" data-accent="{{ $lvl }}" aria-labelledby="lvl-{{ $lvl }}">
       <h3 id="lvl-{{ $lvl }}" class="band-title">{{ .name }}</h3>
       <div class="card-grid">
-        {{- range $inLevel.ByWeight }}{{ partial "card-article.html" . }}{{ end }}
+        {{- range $inLevel.ByWeight }}{{ partial "card-article.html" (dict "page" . "abstract" false) }}{{ end }}
       </div>
     </section>
     {{- end }}
@@ -27,7 +27,7 @@
 {{- else }}
   <div class="card-grid">
     {{- range $visible.ByTitle }}
-      {{- if eq .Type "clanek" }}{{ partial "card-article.html" . }}{{ else }}{{ partial "card-item.html" . }}{{ end }}
+      {{- if eq .Type "clanek" }}{{ partial "card-article.html" (dict "page" . "abstract" true) }}{{ else }}{{ partial "card-item.html" . }}{{ end }}
     {{- end }}
   </div>
 {{- end }}

@@ -108,7 +108,7 @@ main:focus { outline: none; }
 .breadcrumb a[aria-current] { color: var(--text); text-decoration: none; font-weight: 600; }
 
 /* ---------- hero & sections ---------- */
-.hero { background: linear-gradient(135deg, #0f5c4d 0%, #0b6b63 55%, #1e5f8a 100%); color: #fff; padding-block: clamp(2.5rem, 7vw, 5rem); }
+.hero { background: linear-gradient(135deg, #0f5c4d 0%, #0b6b63 55%, #1e5f8a 100%); color: #fff; padding-block: clamp(1.75rem, 4.5vw, 3.25rem); }
 .hero h1 { color: #fff; max-width: 22ch; }
 .hero-lead { font-size: clamp(1.1rem, 2vw, 1.3rem); max-width: 60ch; margin-bottom: 1.5rem; }
 .hero-search { display: flex; gap: .5rem; max-width: 640px; flex-wrap: wrap; }

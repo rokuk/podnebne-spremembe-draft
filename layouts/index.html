@@ -8,14 +8,13 @@
       <input id="hero-q" type="search" name="q" placeholder="{{ i18n "search_placeholder" }}" autocomplete="off">
       <button type="submit" class="button">{{ i18n "search_go" }}</button>
     </form>
-    {{ partial "stripes.html" . }}
   </div>
 </section>
 
 <section class="container section" aria-labelledby="aud-title">
   <h2 id="aud-title" class="visually-hidden">Stopnje izobraževanja</h2>
   <div class="audience-grid">
-    {{- range site.Data.levels }}
+    {{- range hugo.Data.levels }}
     {{- $pg := site.GetPage (printf "/%s" .slug) }}
     <a class="audience-card" data-accent="{{ .slug }}" href="{{ $pg.RelPermalink }}">
       <span class="audience-abbr" aria-hidden="true">{{ .short }}</span>

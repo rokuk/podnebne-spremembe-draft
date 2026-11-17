@@ -49,7 +49,7 @@
         <h2 id="slovarcek-h">{{ i18n "glossary" }}</h2>
         <dl class="glossary-list">
           {{- $key := "" }}
-          {{- range site.Data.levels }}{{ if eq .slug $page.Params.level }}{{ $key = .short_key }}{{ end }}{{ end }}
+          {{- range hugo.Data.levels }}{{ if eq .slug $page.Params.level }}{{ $key = .short_key }}{{ end }}{{ end }}
           {{- range . }}
           {{- with site.GetPage (printf "/glosar/%s" .) }}
           {{- $def := or (index .Params (printf "short_%s" $key)) .Params.short }}
@@ -131,7 +131,7 @@
             {{- if $page.Params.other_levels }}
             {{- range $page.Params.other_levels }}{{ with site.GetPage . }}<li><a href="{{ .RelPermalink }}">{{ partial "level-name.html" .Params.level }}</a><span class="muted block">{{ .Title }}</span></li>{{ else }}{{ errorf "Article %s: unknown other_levels page %q" $page.File.Path . }}{{ end }}{{ end }}
             {{- else }}
-            {{- range site.Data.levels }}{{ if ne .slug $page.Params.level }}
+            {{- range hugo.Data.levels }}{{ if ne .slug $page.Params.level }}
             {{- with site.GetPage (printf "/%s/%s" .slug $topic) }}<li><a href="{{ .RelPermalink }}">{{ partial "level-name.html" .Params.level }}</a></li>{{ end }}
             {{- end }}{{ end }}
             {{- end }}

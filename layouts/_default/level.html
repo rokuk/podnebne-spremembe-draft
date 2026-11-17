@@ -1,8 +1,6 @@
 {{ define "main" }}
 {{ partial "breadcrumb.html" . }}
-{{- $lvl := .Params.level -}}
 <div class="container page-head level-head">
-  <p class="eyebrow">{{ i18n "level" }}</p>
   <h1>{{ .Title }}</h1>
   {{- with .Params.bands }}
   <ul class="badges" role="list" aria-label="{{ i18n "grade" }}">
@@ -26,14 +24,6 @@
       </p>
     </article>
     {{- end }}
-  </div>
-</section>
-
-<section class="container section" aria-labelledby="t-box">
-  <div class="callout-box" data-accent="ucitelji">
-    <h2 id="t-box" class="section-title small">{{ i18n "for_teachers" }}</h2>
-    <p>Učne priprave in gradiva za to stopnjo najdete na strani Učitelji.</p>
-    <p><a class="button" href="{{ "ucitelji/" | relURL }}?stopnja={{ $lvl }}">{{ i18n "lesson_plans" }}: {{ .Title }}</a></p>
   </div>
 </section>
 

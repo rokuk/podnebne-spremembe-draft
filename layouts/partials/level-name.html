@@ -1,5 +1,5 @@
 {{- /* Context: level slug (string). Returns the display name from data/levels.yaml. */ -}}
 {{- $n := . -}}
 {{- $slug := . -}}
-{{- range site.Data.levels }}{{ if eq .slug $slug }}{{ $n = .name }}{{ end }}{{ end -}}
+{{- range hugo.Data.levels }}{{ if eq .slug $slug }}{{ $n = .name }}{{ end }}{{ end -}}
 {{- return $n -}}

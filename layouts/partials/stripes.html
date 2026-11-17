@@ -1,5 +1,5 @@
 {{- /* Warming stripes for Slovenia from data/stripes_slovenija.json (built by scripts/stripes.mjs). */ -}}
-{{- with site.Data.stripes_slovenija }}
+{{- with hugo.Data.stripes_slovenija }}
 {{- $n := len .years }}
 {{- $item := site.GetPage "/ucitelji/gradiva/toplotne-crte-slovenija" }}
 <figure class="stripes">
