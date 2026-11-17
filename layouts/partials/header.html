@@ -15,8 +15,8 @@
       <ul class="nav-list{{ if $right }} nav-right{{ end }}">
         {{- range site.Menus.main }}
         {{- if eq (.Params.right | default false) $right }}
-        {{- $current := or ($.IsMenuCurrent "main" .) ($.HasMenuCurrent "main" .) }}
-        <li class="nav-item"><a href="{{ .URL }}"{{ if $current }} aria-current="true"{{ end }}>{{ .Name }}</a></li>
+        {{- $cur := "" }}{{ if $.IsMenuCurrent "main" . }}{{ $cur = "page" }}{{ else if $.HasMenuCurrent "main" . }}{{ $cur = "true" }}{{ end }}
+        <li class="nav-item"><a href="{{ .URL }}"{{ with $cur }} aria-current="{{ . }}"{{ end }}>{{ .Name }}</a></li>
         {{- end }}
         {{- end }}
       </ul>
@@ -28,7 +28,11 @@
           <svg viewBox="0 0 20 20" width="18" height="18" aria-hidden="true"><circle cx="8.5" cy="8.5" r="5.5" fill="none" stroke="currentColor" stroke-width="2"/><path d="M13 13l4.5 4.5" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
         </button>
       </form>
-      <button type="button" class="theme-toggle js-only" title="{{ i18n "dark_mode" }}" data-theme-toggle data-label-dark="{{ i18n "dark_mode" }}" data-label-light="{{ i18n "light_mode" }}" aria-pressed="false"><span aria-hidden="true" data-theme-icon>☾</span><span class="visually-hidden" data-theme-label>{{ i18n "dark_mode" }}</span></button>
+      <button type="button" class="theme-toggle js-only" title="{{ i18n "dark_mode" }}" data-theme-toggle aria-pressed="false">
+        <svg class="icon-moon" viewBox="0 0 24 24" width="18" height="18" aria-hidden="true" focusable="false"><path d="M20 14.5A8 8 0 0 1 9.5 4a8 8 0 1 0 10.5 10.5z" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/></svg>
+        <svg class="icon-sun" viewBox="0 0 24 24" width="18" height="18" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="4" fill="none" stroke="currentColor" stroke-width="2"/><path d="M12 2v2.5M12 19.5V22M2 12h2.5M19.5 12H22M4.9 4.9l1.8 1.8M17.3 17.3l1.8 1.8M4.9 19.1l1.8-1.8M17.3 6.7l1.8-1.8" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+        <span class="visually-hidden">{{ i18n "dark_mode" }}</span>
+      </button>
     </nav>
   </div>
 </header>

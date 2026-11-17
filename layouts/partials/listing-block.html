@@ -10,6 +10,8 @@
 {{- end }}
 {{- $levels = uniq $levels }}{{ $razredi = uniq $razredi }}{{ $predmeti = uniq $predmeti }}{{ $teme = uniq $teme }}{{ $vrste = uniq $vrste }}
 <div class="container listing" data-listing>
+  {{- /* Filters only help when there is something to narrow down. */}}
+  {{- if gt (len $items) 6 }}
   <form class="filters js-only" aria-label="{{ i18n "filters" }}" data-filters>
     <h2 class="visually-hidden">{{ i18n "filters" }}</h2>
     {{- if gt (len $levels) 1 }}
@@ -43,6 +45,7 @@
       </select></div>
     {{- end }}
   </form>
+  {{- end }}
   <div class="card-grid" data-cards>
     {{- range $items.ByDate.Reverse }}{{ partial "card-item.html" . }}{{ end }}
   </div>

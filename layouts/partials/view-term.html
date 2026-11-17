@@ -12,7 +12,7 @@
     <section class="band" data-accent="{{ $lvl }}" aria-labelledby="lvl-{{ $lvl }}">
       <h3 id="lvl-{{ $lvl }}" class="band-title">{{ .name }}</h3>
       <div class="card-grid">
-        {{- range $inLevel.ByWeight }}{{ partial "card-article.html" (dict "page" . "abstract" false) }}{{ end }}
+        {{- range $inLevel.ByWeight }}{{ partial "card-article.html" (dict "page" . "abstract" false "level" false) }}{{ end }}
       </div>
     </section>
     {{- end }}
@@ -21,7 +21,7 @@
   {{- if $res }}
   <h2>{{ i18n "materials" }}</h2>
   <div class="card-grid">
-    {{- range $res.ByTitle }}{{ partial "card-item.html" . }}{{ end }}
+    {{- range $res.ByTitle }}{{ partial "card-item.html" (dict "page" . "text" false) }}{{ end }}
   </div>
   {{- end }}
 {{- else }}

@@ -46,10 +46,8 @@ other = 'Novice'
 other = 'O projektu'
 [read_more]
 other = 'Preberi več'
-[under_construction]
-other = 'V pripravi'
 [outline_notice]
-other = 'To poglavje je v pripravi. Spodaj je načrtovana vsebina; besedilo še ni napisano.'
+other = 'Besedilo tega poglavja še ni napisano. Spodaj je načrtovana vsebina.'
 [related_articles]
 other = 'Sorodni članki'
 [last_updated]
@@ -118,6 +116,8 @@ other = 'Potek ure'
 other = 'Vrednotenje'
 [attachments]
 other = 'Priloge za prenos'
+[attachments_short]
+other = 'Priloge'
 [related_media]
 other = 'Povezana gradiva'
 [transcript]
@@ -157,7 +157,7 @@ other = 'Novice'
 [show_all]
 other = 'Pokaži vse'
 [glossary_filter]
-other = 'Filtriraj pojme'
+other = 'Iskanje pojmov'
 [glossary_page]
 other = 'Slovar pojmov'
 [footer_about]
@@ -174,7 +174,5 @@ other = 'Iskalni indeks še ni ustvarjen. Zaženite polni build (hugo build && n
 other = 'Za zdaj še ni vsebine.'
 [dark_mode]
 other = 'Temni način'
-[light_mode]
-other = 'Svetli način'
 [materials]
 other = 'Gradiva'

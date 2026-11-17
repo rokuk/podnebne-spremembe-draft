@@ -9,7 +9,8 @@
   <a class="audience-card" data-accent="ucitelji" href="{{ .RelPermalink }}">
     <span class="audience-name">{{ .Title }}</span>
     <span class="audience-desc">{{ .Params.summary }}</span>
-    <span class="audience-count">{{ len (where .RegularPages "Params.status" "ne" "outline") }} vsebin</span>
+    {{- $n := len (where .RegularPages "Params.status" "ne" "outline") }}
+    <span class="audience-count">{{ $n }} {{ if eq $n 1 }}vsebina{{ else if eq $n 2 }}vsebini{{ else if le $n 4 }}vsebine{{ else }}vsebin{{ end }}</span>
   </a>
 </section>
 {{- end }}

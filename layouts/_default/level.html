@@ -13,15 +13,18 @@
   <h2 id="topics-h" class="section-title">{{ i18n "topics" }}</h2>
   <div class="card-grid topic-grid">
     {{- range .Sections.ByWeight }}
-    {{- $pub := where .RegularPages "Params.status" "ne" "outline" }}
+    {{- $pub := len (where .RegularPages "Params.status" "ne" "outline") }}
+    {{- $all := len .RegularPages }}
     <article class="card topic-card">
-      <p class="topic-icon" aria-hidden="true">{{ .Params.icon }}</p>
+      {{ partial "topic-icon.html" . }}
       <h3 class="card-title"><a href="{{ .RelPermalink }}">{{ .Title }}</a></h3>
       {{- with .Params.summary }}<p class="card-text">{{ . }}</p>{{ end }}
+      {{- if $pub }}
       <p class="card-meta">
-        {{- if $pub }}<span>{{ len $pub }} {{ if eq (len $pub) 1 }}članek{{ else if eq (len $pub) 2 }}članka{{ else if le (len $pub) 4 }}članki{{ else }}člankov{{ end }}</span>
-        {{- else }}<span class="badge badge-muted">{{ i18n "under_construction" }}</span>{{ end }}
+        {{- if lt $pub $all }}{{ $pub }} od {{ $all }} {{ if eq $all 1 }}članka{{ else }}člankov{{ end }}
+        {{- else }}{{ $pub }} {{ if eq $pub 1 }}članek{{ else if eq $pub 2 }}članka{{ else if le $pub 4 }}članki{{ else }}člankov{{ end }}{{ end }}
       </p>
+      {{- end }}
     </article>
     {{- end }}
   </div>

@@ -2,17 +2,13 @@
 (function () {
   'use strict';
 
-  // ---- theme: light by default, dark only when the visitor chooses it ----
+  // ---- theme: saved choice, else the system preference (set early in head.html) ----
+  // The button is a toggle with a fixed label ("Temni način"); aria-pressed carries the state.
   var tt = document.querySelector('[data-theme-toggle]');
   if (tt) {
     var root = document.documentElement;
     var paint = function () {
-      var dark = root.getAttribute('data-theme') === 'dark';
-      tt.setAttribute('aria-pressed', String(dark));
-      var lbl = tt.getAttribute(dark ? 'data-label-light' : 'data-label-dark');
-      tt.querySelector('[data-theme-label]').textContent = lbl;
-      tt.setAttribute('title', lbl);
-      tt.querySelector('[data-theme-icon]').textContent = dark ? '☀' : '☾';
+      tt.setAttribute('aria-pressed', String(root.getAttribute('data-theme') === 'dark'));
     };
     tt.addEventListener('click', function () {
       var next = root.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';

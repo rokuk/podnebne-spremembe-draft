@@ -3,5 +3,4 @@
   {{- with .Params.level }}<li>{{ with site.GetPage (printf "/%s" .) }}<a class="badge badge-level" href="{{ .RelPermalink }}">{{ partial "level-name.html" $.Params.level }}</a>{{ else }}<span class="badge badge-level">{{ partial "level-name.html" . }}</span>{{ end }}</li>{{ end }}
   {{- range .Params.razredi }}<li><a class="badge" href="{{ printf "razredi/%s/" (. | urlize) | relURL }}">{{ if findRE `^\d` (printf "%v" .) }}{{ partial "term-title.html" (dict "tax" "razredi" "slug" (printf "%v" .)) }}{{ else }}{{ partial "term-title.html" (dict "tax" "razredi" "slug" (printf "%v" .)) }}{{ end }}</a></li>{{ end }}
   {{- range .Params.predmeti }}<li><a class="badge badge-subject" href="{{ printf "predmeti/%s/" (. | urlize) | relURL }}">{{ partial "term-title.html" (dict "tax" "predmeti" "slug" .) }}</a></li>{{ end }}
-  {{- if eq .Params.status "outline" }}<li><span class="badge badge-muted">{{ i18n "under_construction" }}</span></li>{{ end }}
 </ul>

@@ -54,17 +54,8 @@
 
       {{- if .Resources.ByType "application" }}
       <section id="priloge" class="backmatter" aria-labelledby="dl-h">
-        <h2 id="dl-h">{{ i18n "attachments" }}</h2>
+        <h2 id="dl-h">{{ i18n "attachments_short" }}</h2>
         {{ partial "downloads.html" . }}
-      </section>
-      {{- end }}
-
-      {{- with .Params.related_articles }}
-      <section class="backmatter" aria-labelledby="ra-h">
-        <h2 id="ra-h">{{ i18n "related_articles" }}</h2>
-        <ul class="plain">
-          {{- range . }}{{ with site.GetPage . }}<li><a href="{{ .RelPermalink }}">{{ .Title }}</a> <span class="muted">· {{ partial "level-name.html" .Params.level }}</span></li>{{ else }}{{ warnf "Lesson %s: unknown article %q" $page.File.Path . }}{{ end }}{{ end }}
-        </ul>
       </section>
       {{- end }}
 
@@ -73,6 +64,15 @@
         <h2 id="rm-h">{{ i18n "related_media" }}</h2>
         <ul class="plain">
           {{- range . }}{{ with site.GetPage (printf "/ucitelji/gradiva/%s" .) }}<li><a href="{{ .RelPermalink }}">{{ .Title }}</a></li>{{ else }}{{ warnf "Lesson %s: unknown media %q" $page.File.Path . }}{{ end }}{{ end }}
+        </ul>
+      </section>
+      {{- end }}
+
+      {{- with .Params.related_articles }}
+      <section class="backmatter" aria-labelledby="ra-h">
+        <h2 id="ra-h">{{ i18n "related_articles" }}</h2>
+        <ul class="plain">
+          {{- range . }}{{ with site.GetPage . }}<li><a href="{{ .RelPermalink }}">{{ .Title }}</a> <span class="muted">· {{ partial "level-name.html" .Params.level }}</span></li>{{ else }}{{ warnf "Lesson %s: unknown article %q" $page.File.Path . }}{{ end }}{{ end }}
         </ul>
       </section>
       {{- end }}

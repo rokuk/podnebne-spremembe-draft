@@ -1,5 +1,5 @@
 /* Design B – "editorial": warm paper background, serif headings, flat bordered cards, light hero and footer.
-   Loaded after main.css when params.design = 'b' in hugo.toml. Light by default; dark only via the toggle. */
+   Loaded after main.css when params.design = 'b' in hugo.toml. Follows the system colour scheme unless the visitor picks one with the toggle. */
 :root {
   --font-head: var(--font);
   --line-strong: #857c6b;
@@ -59,7 +59,7 @@ html { scroll-padding-top: 1rem; }
 /* ---------- hero: light, typographic ---------- */
 .hero { background: var(--bg-soft); color: var(--text); border-bottom: 1px solid var(--line); padding-block: clamp(1.75rem, 4vw, 3rem); }
 .hero-temp { color: var(--brand); }
-.hero h1 { color: var(--text); max-width: 18ch; }
+.hero h1 { color: var(--text); max-width: 26ch; }
 .hero h1::after { content: ""; display: block; width: 5rem; height: 5px; background: #a83f1b; margin-top: 1.1rem; }
 .hero-lead { color: var(--muted); }
 .hero-search input { border: 2px solid var(--brand); border-radius: var(--radius); background: var(--surface); color: var(--text); }
@@ -68,12 +68,12 @@ html { scroll-padding-top: 1rem; }
 
 /* ---------- cards: flat, left rule ---------- */
 .card { background: var(--surface); border: 1px solid var(--line); border-left: 5px solid var(--accent); box-shadow: none; padding: 1.1rem 1.2rem; }
-.card:hover { box-shadow: none; border-color: var(--accent); }
+.card:hover { box-shadow: none; border-color: var(--accent); background: var(--accent-soft); }
 .card-thumb { margin: -1.1rem -1.2rem .9rem; border-radius: 0; }
 .card-title { font-size: 1.25rem; }
 .audience-card { background: var(--surface); border: 1px solid var(--line); border-bottom: 5px solid var(--accent); border-radius: var(--radius); padding: 1.4rem; }
 .audience-card:hover { background: var(--accent-soft); border-color: var(--accent); }
-.audience-abbr { border-radius: var(--radius); width: auto; height: auto; padding: .15rem .55rem; justify-self: start; align-self: flex-start; font-size: .8rem; letter-spacing: .08em; }
+.audience-abbr { border-radius: var(--radius); width: auto; height: auto; padding: .15rem .55rem; justify-self: start; align-self: flex-start; font-size: .875rem; letter-spacing: .08em; }
 .audience-name { font-size: 1.45rem; }
 .section-title { border-bottom: 2px solid var(--text); padding-bottom: .35rem; }
 .section-title.small { border: 0; padding: 0; }
@@ -95,7 +95,7 @@ html { scroll-padding-top: 1rem; }
 
 /* ---------- article ---------- */
 .abstract { background: var(--surface); border: 1px solid var(--line); border-left: 6px solid var(--accent); }
-.abstract h2 { font-family: var(--font); text-transform: uppercase; font-size: .85rem; letter-spacing: .1em; color: var(--accent); }
+.abstract h2 { font-family: var(--font); text-transform: uppercase; font-size: .875rem; letter-spacing: .1em; color: var(--accent); }
 .prose h2 { border-top: 0; border-bottom: 1px solid var(--line); padding: 0 0 .3rem; margin-top: 2.2rem; }
 .backmatter { border-top: 2px solid var(--text); }
 .path-item::before { border-radius: var(--radius); font-family: var(--font-head); }
@@ -104,7 +104,7 @@ html { scroll-padding-top: 1rem; }
 :root[data-theme="dark"] .notice { background: #3a3013; border-color: #6b5a1e; color: #f1dc8f; }
 
 /* ---------- footer: light ---------- */
-.site-footer { background: var(--bg-soft); color: var(--text); border-top: 2px solid var(--text); }
+.site-footer { background: var(--bg-soft); color: var(--text); border-top: 1px solid var(--line); }
 .site-footer a { color: var(--link); }
 .muted-on-dark { color: var(--muted); }
 .footer-bottom { border-top-color: var(--line); }
@@ -133,8 +133,13 @@ a.term { text-decoration-color: var(--accent); }
 :root[data-theme="dark"] .callout-pomembno { --accent: #ffb0aa; --accent-soft: #3a1b1a; }
 :root[data-theme="dark"] .figure img { border-color: var(--line-strong); }
 
-.site-header { background: var(--bg); border-bottom: 0; }
-.header-inner { border-bottom: 1px solid var(--line); }
+/* Header line spans the whole window, like the footer line. */
+.site-header { background: var(--bg); border-bottom: 1px solid var(--line); }
+.header-inner { border-bottom: 0; }
 
 /* Page headers share the content left edge (no indented accent bar). */
 .level-head, .level-head { border-left: 0 !important; padding-left: var(--gutter); margin-top: 0; }
+
+/* Front page: cards without the thick accent rule on the left (beats the dark-mode .card rule above). */
+:root body.kind-home .card { border-left: 1px solid var(--line); }
+:root body.kind-home .card:hover { border-left-color: var(--accent); }

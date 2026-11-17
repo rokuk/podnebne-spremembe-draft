@@ -1,6 +1,25 @@
 /* Podnebni izobraževalni portal – main stylesheet. Plain CSS, no build step beyond Hugo. */
+
+/* Source Sans 3 (Adobe, SIL Open Font License 1.1 – static/fonts/SOURCE-SANS-3-LICENSE.md), self-hosted so
+   the site looks the same on every device and no visitor data goes to a font service. Variable weight 200–900.
+   Paths are relative to the built stylesheet (/css/…), so they also work when the site lives in a subfolder. */
+@font-face {
+  font-family: "Source Sans 3";
+  src: url("../fonts/source-sans-3-upright.woff2") format("woff2");
+  font-weight: 200 900;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Source Sans 3";
+  src: url("../fonts/source-sans-3-italic.woff2") format("woff2");
+  font-weight: 200 900;
+  font-style: italic;
+  font-display: swap;
+}
+
 :root {
-  --font: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  --font: "Source Sans 3", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
   --font-serif: Georgia, "Times New Roman", serif;
   --bg: #ffffff;
   --bg-soft: #f5f7f6;
@@ -127,7 +146,7 @@ main:focus { outline: none; }
 .section-head { display: flex; align-items: baseline; justify-content: space-between; gap: 1rem; flex-wrap: wrap; }
 .more { font-weight: 600; }
 .page-head { padding-block: 1.2rem .4rem; }
-.eyebrow { text-transform: uppercase; letter-spacing: .08em; font-size: .78rem; font-weight: 700; color: var(--accent); margin: 0 0 .3rem; }
+.eyebrow { text-transform: uppercase; letter-spacing: .08em; font-size: .875rem; font-weight: 700; color: var(--accent); margin: 0 0 .3rem; }
 .lead, .lead-block { font-size: 1.2rem; max-width: var(--measure); }
 .lead-block > :last-child { margin-bottom: 0; }
 .level-head { border-left: 6px solid var(--accent); margin-top: 1rem; padding-left: calc(var(--gutter) + 6px); }
@@ -140,7 +159,7 @@ body[data-accent] .level-head { --_a: var(--accent); }
 .card { background: var(--bg); border: 1px solid var(--line); border-top: 4px solid var(--accent); border-radius: var(--radius); padding: 1rem 1.1rem; box-shadow: var(--shadow); display: flex; flex-direction: column; min-width: 0; }
 .card-thumb { display: block; margin: -1rem -1.1rem .8rem; background: var(--bg-soft); border-radius: 6px 6px 0 0; overflow: hidden; }
 .card-thumb img { display: block; width: 100%; aspect-ratio: 16/10; object-fit: cover; }
-.card-kicker { font-size: .8rem; text-transform: uppercase; letter-spacing: .05em; color: var(--accent); font-weight: 700; margin: 0 0 .3rem; }
+.card-kicker { font-size: .875rem; text-transform: uppercase; letter-spacing: .05em; color: var(--accent); font-weight: 700; margin: 0 0 .3rem; }
 .card-kicker abbr { text-decoration: none; cursor: help; }
 .card-title { font-size: 1.12rem; margin: 0 0 .5rem; }
 .card-title a { color: var(--text); text-decoration: none; }
@@ -150,10 +169,36 @@ body[data-accent] .level-head { --_a: var(--accent); }
 .card:focus-within { outline: 3px solid var(--focus); outline-offset: 2px; }
 .card-title a:focus-visible { outline: none; }
 .card-text { color: var(--muted); font-size: .95rem; margin-bottom: .6rem; }
-.card-meta { list-style: none; padding: 0; margin: auto 0 0; display: flex; flex-wrap: wrap; gap: .3rem .8rem; font-size: .85rem; color: var(--muted); }
+.card-meta { list-style: none; padding: 0; margin: auto 0 0; display: flex; flex-wrap: wrap; gap: .3rem .8rem; font-size: .875rem; color: var(--muted); }
 p.card-meta { display: block; }
 .topic-card { text-align: left; }
-.topic-icon { font-size: 1.8rem; margin: 0 0 .2rem; line-height: 1; }
+/* Topic icons: one colour per topic (>= 3:1 on the card in both themes). */
+.topic-icon { --topic-c: var(--accent); margin: 0 0 .5rem; line-height: 0; color: var(--topic-c); }
+.topic-icon svg { width: 32px; height: 32px; }
+[data-topic="osnove"]                         { --topic-c: #1d6fa5; }
+[data-topic="kmetijstvo"]                     { --topic-c: #9a6500; }
+[data-topic="vode"]                           { --topic-c: #1565c0; }
+[data-topic="gozdarstvo"]                     { --topic-c: #2e7d32; }
+[data-topic="energija"]                       { --topic-c: #b45f00; }
+[data-topic="promet"]                         { --topic-c: #4f52b8; }
+[data-topic="prostor-in-mesta"]               { --topic-c: #8a4f3a; }
+[data-topic="industrija-in-krozno"]           { --topic-c: #00796b; }
+[data-topic="naravne-nesrece"]                { --topic-c: #c2410c; }
+[data-topic="biotska-raznovrstnost"]          { --topic-c: #558b2f; }
+[data-topic="zdravje"]                        { --topic-c: #c62a47; }
+[data-topic="izobrazevanje-in-komuniciranje"] { --topic-c: #8e44ad; }
+:root[data-theme="dark"] [data-topic="osnove"]                         { --topic-c: #6db3e8; }
+:root[data-theme="dark"] [data-topic="kmetijstvo"]                     { --topic-c: #e3b341; }
+:root[data-theme="dark"] [data-topic="vode"]                           { --topic-c: #6cb4ff; }
+:root[data-theme="dark"] [data-topic="gozdarstvo"]                     { --topic-c: #7cc47f; }
+:root[data-theme="dark"] [data-topic="energija"]                       { --topic-c: #ffb547; }
+:root[data-theme="dark"] [data-topic="promet"]                         { --topic-c: #a5a8f5; }
+:root[data-theme="dark"] [data-topic="prostor-in-mesta"]               { --topic-c: #e0a58e; }
+:root[data-theme="dark"] [data-topic="industrija-in-krozno"]           { --topic-c: #4fd1c0; }
+:root[data-theme="dark"] [data-topic="naravne-nesrece"]                { --topic-c: #ff8a5c; }
+:root[data-theme="dark"] [data-topic="biotska-raznovrstnost"]          { --topic-c: #a8d468; }
+:root[data-theme="dark"] [data-topic="zdravje"]                        { --topic-c: #ff7b8f; }
+:root[data-theme="dark"] [data-topic="izobrazevanje-in-komuniciranje"] { --topic-c: #d39ae8; }
 .audience-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); gap: 1rem; }
 .audience-grid.two { grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); }
 .audience-card { display: flex; flex-direction: column; gap: .35rem; padding: 1.2rem; border-radius: var(--radius); background: var(--accent-soft); border: 2px solid transparent; text-decoration: none; color: var(--text); }
@@ -167,7 +212,7 @@ p.card-meta { display: block; }
 
 /* ---------- badges & buttons ---------- */
 .badges { list-style: none; padding: 0; margin: 0 0 .6rem; display: flex; flex-wrap: wrap; gap: .4rem; }
-.badge { display: inline-block; padding: .15rem .6rem; border-radius: 999px; border: 1px solid var(--line); background: var(--bg-soft); font-size: .8rem; font-weight: 600; text-decoration: none; color: var(--text); }
+.badge { display: inline-block; padding: .15rem .6rem; border-radius: 999px; border: 1px solid var(--line); background: var(--bg-soft); font-size: .875rem; font-weight: 600; text-decoration: none; color: var(--text); }
 a.badge:hover { border-color: var(--accent); }
 .badge-level { background: var(--accent); border-color: var(--accent); color: var(--on-accent); }
 .badge-subject { background: var(--accent-soft); }
@@ -186,7 +231,7 @@ a.badge:hover { border-color: var(--accent); }
 .meta-line, .meta-strip { list-style: none; padding: 0; display: flex; flex-wrap: wrap; gap: .3rem 1.4rem; color: var(--muted); font-size: .9rem; margin: .6rem 0; }
 .meta-strip { margin: 1rem 0; }
 .meta-strip > div { display: flex; flex-direction: column; }
-.meta-strip dt { font-size: .75rem; text-transform: uppercase; letter-spacing: .06em; font-weight: 700; }
+.meta-strip dt { font-size: .875rem; text-transform: uppercase; letter-spacing: .06em; font-weight: 700; }
 .meta-strip dd { margin: 0; color: var(--text); font-weight: 600; }
 .meta-strip.stacked { flex-direction: column; gap: .7rem; }
 .actions { display: flex; gap: .5rem; flex-wrap: wrap; margin: .6rem 0 0; }
@@ -229,14 +274,14 @@ a.term:hover { color: var(--link); }
 .notice-soft { background: var(--bg-soft); border-color: var(--line); color: var(--muted); font-size: .92rem; }
 .prev-next { display: flex; justify-content: space-between; gap: 1rem; margin-top: 2rem; flex-wrap: wrap; max-width: var(--measure); }
 .prev-next a { flex: 1 1 240px; border: 1px solid var(--line); border-radius: var(--radius); padding: .8rem 1rem; text-decoration: none; font-weight: 700; color: var(--text); }
-.prev-next a span { display: block; font-size: .8rem; color: var(--muted); font-weight: 600; }
+.prev-next a span { display: block; font-size: .875rem; color: var(--muted); font-weight: 600; }
 .prev-next .next { text-align: right; }
 .figure { margin: 1.4rem 0; }
 .figure img { border: 1px solid var(--line); border-radius: 8px; background: #fff; }
 .figure figcaption { font-size: .9rem; color: var(--muted); margin-top: .4rem; }
 .credit { font-style: italic; }
 .callout { border-radius: var(--radius); border-left: 6px solid var(--accent); background: var(--accent-soft); padding: .8rem 1.1rem; margin: 1.3rem 0; }
-.callout-title { font-weight: 800; margin: 0 0 .3rem; text-transform: uppercase; font-size: .8rem; letter-spacing: .06em; color: var(--accent); }
+.callout-title { font-weight: 800; margin: 0 0 .3rem; text-transform: uppercase; font-size: .875rem; letter-spacing: .06em; color: var(--accent); }
 .callout-body > :last-child { margin-bottom: 0; }
 .callout-vedeli { --accent: #7a3e00; --accent-soft: #fff4e0; }
 .callout-razmisli { --accent: #1e3a8a; --accent-soft: #eaf0ff; }
@@ -255,12 +300,12 @@ a.term:hover { color: var(--link); }
 .path-item::before { content: counter(p); position: absolute; left: -1.3rem; top: 0; width: 2.4rem; height: 2.4rem; display: grid; place-items: center; border-radius: 50%; background: var(--accent); color: var(--on-accent); font-weight: 800; }
 .path-item h3 { margin: 0 0 .3rem; font-size: 1.15rem; }
 .path-item.is-outline h3 a { color: var(--muted); }
-.path-item .meta { color: var(--muted); font-size: .85rem; }
+.path-item .meta { color: var(--muted); font-size: .875rem; }
 
 /* ---------- listings ---------- */
 .filters { display: flex; flex-wrap: wrap; gap: .8rem 1rem; align-items: end; padding: 1rem; background: var(--bg-soft); border-radius: var(--radius); margin-bottom: 1rem; }
 .filters .field { display: flex; flex-direction: column; gap: .25rem; min-width: 170px; }
-.filters label { font-size: .8rem; font-weight: 700; text-transform: uppercase; letter-spacing: .05em; }
+.filters label { font-size: .875rem; font-weight: 700; text-transform: uppercase; letter-spacing: .05em; }
 .filters select, .filter-bar input { padding: .5rem .6rem; font: inherit; border-radius: 6px; border: 1px solid var(--line); background: var(--bg); color: var(--text); }
 .filter-bar { display: flex; flex-direction: column; gap: .3rem; max-width: 420px; margin-top: 1rem; }
 .filter-bar label { font-weight: 700; }
@@ -271,10 +316,10 @@ a.term:hover { color: var(--link); }
 /* ---------- downloads ---------- */
 .downloads { list-style: none; padding: 0; display: grid; gap: .7rem; }
 .download { display: flex; align-items: center; gap: .9rem; padding: .7rem .9rem; border: 1px solid var(--line); border-radius: var(--radius); background: var(--bg); }
-.download-ext { flex: none; width: 3.2rem; height: 3.2rem; display: grid; place-items: center; background: var(--accent-soft); color: var(--accent); border-radius: 8px; font-weight: 800; font-size: .8rem; }
+.download-ext { flex: none; width: 3.2rem; height: 3.2rem; display: grid; place-items: center; background: var(--accent-soft); color: var(--accent); border-radius: 8px; font-weight: 800; font-size: .875rem; }
 .download-body { display: flex; flex-direction: column; flex: 1; min-width: 0; }
 .download-title { font-weight: 700; overflow-wrap: anywhere; }
-.download-meta { font-size: .85rem; color: var(--muted); }
+.download-meta { font-size: .875rem; color: var(--muted); }
 .steps { width: 100%; border-collapse: collapse; }
 
 /* ---------- glossary ---------- */
@@ -285,6 +330,7 @@ a.term:hover { color: var(--link); }
 .letter { color: var(--accent); border-bottom: 2px solid var(--line); margin: 1.5rem 0 .5rem; padding-bottom: .2rem; }
 .glossary-index dt { font-weight: 700; }
 .glossary-index dd { margin: 0 0 .9rem; max-width: var(--measure); }
+@media (min-width: 1000px) { .glossary-index { display: grid; grid-template-columns: 1fr 1fr; column-gap: 3rem; } }
 
 /* ---------- pagination, footer ---------- */
 .pagination ul { list-style: none; display: flex; flex-wrap: wrap; gap: .4rem; padding: 0; justify-content: center; margin: 1.5rem 0; }
@@ -335,6 +381,8 @@ a.term:hover { color: var(--link); }
 .site-search input { height: 100%; padding-block: 0; }
 .site-search button { height: 100%; padding-block: 0; display: grid; place-items: center; }
 .theme-toggle { width: 40px; padding: 0; justify-content: center; font-size: 1.1rem; line-height: 1; }
+.theme-toggle .icon-sun, .theme-toggle[aria-pressed="true"] .icon-moon { display: none; }
+.theme-toggle[aria-pressed="true"] .icon-sun { display: block; }
 
 /* Header bar matches content width: the divider line lives on the inner container, not full-bleed. */
 .site-header { background: var(--bg); border-bottom: 0; }

@@ -1,5 +1,11 @@
-{{- /* Generic resource card (lesson plan, worksheet, media item, news). Carries data-* attributes for client-side filtering. */ -}}
-{{- $p := . -}}
+{{- /* Generic resource card (lesson plan, worksheet, media item, news). Carries data-* attributes for client-side filtering.
+       Context: a page, or dict "page" <page> "text" <bool> (show the summary; default true).
+       Lesson plans (type priprava) never show the summary or the file count. */ -}}
+{{- $p := . -}}{{ $text := true -}}
+{{- if reflect.IsMap . }}{{ $p = .page }}{{ $text = ne .text false }}{{ end -}}
+{{- $isLesson := eq $p.Type "priprava" -}}
+{{- if $isLesson }}{{ $text = false }}{{ end -}}
+{{- with $p -}}
 {{- $thumb := .Resources.GetMatch "thumb.*" -}}
 {{- if not $thumb }}{{ $thumb = .Resources.GetMatch "main.*" }}{{ end -}}
 <article class="card card-item" data-accent="{{ or .Params.level "ucitelji" }}"
@@ -18,13 +24,14 @@
   </p>
   <h3 class="card-title"><a href="{{ .RelPermalink }}">{{ .Title }}</a></h3>
   {{- $sum := "" }}{{ with .Params.summary }}{{ $sum = . }}{{ else }}{{ with .Params.abstract }}{{ $sum = . }}{{ else }}{{ with .Description }}{{ $sum = . }}{{ end }}{{ end }}{{ end }}
-  {{- with $sum }}<p class="card-text">{{ . | markdownify | plainify | truncate 150 }}</p>{{ end }}
+  {{- if $text }}{{ with $sum }}<p class="card-text">{{ . | markdownify | plainify | truncate 150 }}</p>{{ end }}{{ end }}
   <ul class="card-meta" role="list">
     {{- with .Params.duration }}<li>{{ . }} {{ i18n "minutes" }}</li>{{ end }}
     {{- range first 2 (default (slice) .Params.razredi) }}<li>{{ partial "term-title.html" (dict "tax" "razredi" "slug" (printf "%v" .)) }}</li>{{ end }}
     {{- range first 2 (default (slice) .Params.predmeti) }}<li>{{ partial "term-title.html" (dict "tax" "predmeti" "slug" .) }}</li>{{ end }}
     {{- range first 1 (default (slice) .Params.vrste) }}<li>{{ partial "term-title.html" (dict "tax" "vrste" "slug" .) }}</li>{{ end }}
     {{- $files := .Resources.ByType "application" }}
-    {{- if $files }}<li>{{ len $files }} {{ if eq (len $files) 1 }}datoteka{{ else if eq (len $files) 2 }}datoteki{{ else }}datotek{{ end }}</li>{{ end }}
+    {{- if and $files (not $isLesson) }}<li>{{ len $files }} {{ if eq (len $files) 1 }}datoteka{{ else if eq (len $files) 2 }}datoteki{{ else }}datotek{{ end }}</li>{{ end }}
   </ul>
 </article>
+{{- end }}

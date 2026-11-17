@@ -40,9 +40,9 @@
     {{- range .Pages.ByWeight }}
     {{- $n := len (where (where .Pages "Type" "clanek") "Params.status" "ne" "outline") }}
     <article class="card topic-card">
-      <p class="topic-icon" aria-hidden="true">{{ .Params.icon }}</p>
+      {{ partial "topic-icon.html" . }}
       <h3 class="card-title"><a href="{{ .RelPermalink }}">{{ .Title }}</a></h3>
-      {{- if eq $n 0 }}<p class="card-meta"><span class="badge badge-muted">{{ i18n "under_construction" }}</span></p>{{ end }}
+      {{- if $n }}<p class="card-meta">{{ $n }} {{ if eq $n 1 }}članek{{ else if eq $n 2 }}članka{{ else if le $n 4 }}članki{{ else }}člankov{{ end }}</p>{{ end }}
     </article>
     {{- end }}
   </div>

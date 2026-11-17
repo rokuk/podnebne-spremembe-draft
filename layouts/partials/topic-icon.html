@@ -1,0 +1,3 @@
+{{- /* Context: a topic page (/<level>/<tema>/ or /teme/<tema>/). Inlines assets/icons/<tema>.svg; decorative. */ -}}
+{{- $id := path.Base (strings.TrimSuffix "/" .RelPermalink) -}}
+{{- with resources.Get (printf "icons/%s.svg" $id) }}<p class="topic-icon" data-topic="{{ $id }}" aria-hidden="true">{{ .Content | safeHTML }}</p>{{ end -}}

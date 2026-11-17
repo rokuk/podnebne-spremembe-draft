@@ -11,6 +11,13 @@ timeZone = 'Europe/Ljubljana'
   razred = 'razredi'
   vrsta = 'vrste'
 
+# The glossary lives in content/glosar but is published under /slovar/.
+[permalinks]
+  [permalinks.section]
+    glosar = '/slovar/'
+  [permalinks.page]
+    glosar = '/slovar/:contentbasename/'
+
 [pagination]
   pagerSize = 9
 
@@ -30,7 +37,7 @@ timeZone = 'Europe/Ljubljana'
   # Visual design: 'a' = original (green, sticky header, gradient hero), 'b' = alternative (warm editorial, serif headings).
   design = 'b'
   description = 'Izobraževalni portal o podnebnih spremembah in prilagajanju: članki, učne priprave, gradiva za prenos in slike za učitelje, dijake, strokovnjake in odločevalce.'
-  # Show skeleton ("v pripravi") articles in lists. Set to false for a production launch without outlines.
+  # Show skeleton (status: outline) articles in lists. Set to false for a production launch without outlines.
   showOutlines = true
   licenseName = 'CC BY 4.0'
   licenseUrl = 'https://creativecommons.org/licenses/by/4.0/deed.sl'

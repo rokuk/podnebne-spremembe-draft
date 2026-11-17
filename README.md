@@ -40,7 +40,7 @@ Create a bundle with an archetype, e.g. `hugo new content --kind clanek srednja-
 
 ```yaml
 question: "…?"           # the one question the article answers; shown under the title on the chapter page
-status: published        # published | outline  (outline = skeleton, shown as "V pripravi", noindex)
+status: published        # published | outline  (outline = skeleton with a "not written yet" notice, noindex)
 teme: [osnove]           # topic id; same id across levels links the three versions together
 razredi: [gimnazija]     # OŠ: "1-3" "4-6" "7-9"; SŠ: gimnazija, strokovne, poklicne
 predmeti: [geografija]
@@ -56,15 +56,8 @@ Published articles are validated at build time (abstract, sources, glossary, alt
 `{{< g "slug" "inflected form" >}}` links a glossary term, `{{% callout type="vedeli" %}}…{{% /callout %}}` adds a box
 (`vedeli`, `razmisli`, `poskus`, `pomembno`), `{{< figure src="x.svg" alt="…" caption="…" credit="…" >}}` needs alt text.
 
-Skeleton articles keep `status: outline`; set it to `published` and fill abstract/glossary/sources when the text is ready.
-To hide all outlines on the live site set `showOutlines = false` in `hugo.toml`.
 
-## Open items
-
-Portal name/logo, funder text, contact data, public names/URLs of the linked services (`params.services` in `hugo.toml`),
-licence confirmation (CC BY 4.0 is a placeholder), accessibility audit, hosting target, and expert review of all content.
-
-## Warming stripes (toplotne črte)
+## Warming stripes (podnebne črte)
 
 The teacher material *Toplotne črte Slovenije* uses `data/stripes_slovenija.json`, generated from ARSO
 environmental indicator PP04-1 (annual mean air temperature at six stations, CSV export from

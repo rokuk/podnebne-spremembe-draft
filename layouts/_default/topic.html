@@ -15,7 +15,7 @@
     <ol class="path">
       {{- range $items }}
       <li class="path-item{{ if eq .Params.status "outline" }} is-outline{{ end }}">
-        <h3><a href="{{ .RelPermalink }}">{{ .Title }}</a>{{ if eq .Params.status "outline" }} <span class="badge badge-muted">{{ i18n "under_construction" }}</span>{{ end }}</h3>
+        <h3><a href="{{ .RelPermalink }}">{{ .Title }}</a></h3>
         {{- with .Params.question }}<p class="path-question">{{ . }}</p>{{ end }}
       </li>
       {{- end }}
