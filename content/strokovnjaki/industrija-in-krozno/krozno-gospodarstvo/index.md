@@ -1,5 +1,6 @@
 ---
 title: "Krožno gospodarstvo"
+question: "Kateri ukrepi krožnega gospodarstva najbolj zmanjšajo izpuste in rabo surovin?"
 status: outline
 weight: 4
 teme: [industrija-in-krozno]

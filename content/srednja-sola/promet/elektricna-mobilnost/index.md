@@ -1,5 +1,6 @@
 ---
 title: "Električna mobilnost"
+question: "Ali so električna vozila res boljša za podnebje?"
 status: outline
 weight: 2
 teme: [promet]

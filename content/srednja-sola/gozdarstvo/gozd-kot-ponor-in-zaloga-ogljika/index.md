@@ -1,5 +1,6 @@
 ---
 title: "Gozd kot ponor in zaloga ogljika"
+question: "Koliko ogljika gozd veže in kdaj postane vir namesto ponora?"
 status: outline
 weight: 1
 teme: [gozdarstvo]

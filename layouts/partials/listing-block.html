@@ -42,9 +42,7 @@
         {{- range $vrste }}<option value="{{ . }}">{{ partial "term-title.html" (dict "tax" "vrste" "slug" .) }}</option>{{ end }}
       </select></div>
     {{- end }}
-    <div class="field field-actions"><button type="reset" class="button button-outline button-small">{{ i18n "reset_filters" }}</button></div>
   </form>
-  <p class="result-count" role="status" aria-live="polite"><span class="js-only">{{ i18n "results" }}: </span><strong data-count>{{ len $items }}</strong></p>
   <div class="card-grid" data-cards>
     {{- range $items.ByDate.Reverse }}{{ partial "card-item.html" . }}{{ end }}
   </div>

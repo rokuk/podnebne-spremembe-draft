@@ -1,5 +1,6 @@
 ---
 title: "Prostorsko načrtovanje"
+question: "Kako umestitev stavb, cest in zelenih površin vpliva na podnebje in prilagajanje?"
 status: outline
 weight: 4
 teme: [prostor-in-mesta]

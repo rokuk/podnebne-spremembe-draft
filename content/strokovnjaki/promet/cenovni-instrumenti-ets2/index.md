@@ -1,5 +1,6 @@
 ---
 title: "Cenovni instrumenti: ETS2"
+question: "Kaj bo ETS2 pomenil za cene goriv in kako ublažiti socialne učinke?"
 status: outline
 weight: 3
 teme: [promet]

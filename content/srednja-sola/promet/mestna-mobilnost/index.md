@@ -1,5 +1,6 @@
 ---
 title: "Mestna mobilnost"
+question: "Kako lahko mesta zmanjšajo odvisnost od avtomobila?"
 status: outline
 weight: 4
 teme: [promet]

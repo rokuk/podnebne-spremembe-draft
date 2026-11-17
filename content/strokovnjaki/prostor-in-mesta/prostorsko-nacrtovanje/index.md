@@ -1,5 +1,6 @@
 ---
 title: "Prostorsko načrtovanje"
+question: "Kako vključiti podnebna merila v prostorske akte in presoje?"
 status: outline
 weight: 2
 teme: [prostor-in-mesta]

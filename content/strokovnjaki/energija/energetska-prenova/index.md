@@ -1,5 +1,6 @@
 ---
 title: "Energetska prenova"
+question: "Kako pospešiti energetsko prenovo stavbnega fonda in s katerimi instrumenti?"
 status: outline
 weight: 3
 teme: [energija]

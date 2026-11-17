@@ -1,5 +1,6 @@
 ---
 title: "Lesnopredelovalna veriga"
+question: "Kako lahko lesnopredelovalna veriga poveča dolgoročno shranjevanje ogljika v lesnih izdelkih?"
 status: outline
 weight: 4
 teme: [gozdarstvo]

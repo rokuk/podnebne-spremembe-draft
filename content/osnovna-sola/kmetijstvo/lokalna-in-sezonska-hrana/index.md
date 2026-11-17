@@ -1,5 +1,6 @@
 ---
 title: "Lokalna in sezonska hrana"
+question: "Zakaj je hrana iz bližine in v pravem letnem času boljša za podnebje?"
 status: outline
 weight: 4
 teme: [kmetijstvo]

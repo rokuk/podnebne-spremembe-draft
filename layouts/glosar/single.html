@@ -6,13 +6,6 @@
   <p class="eyebrow">{{ i18n "glossary_page" }}</p>
   <h1 data-pagefind-meta="title">{{ .Title }}</h1>
   <p class="lead">{{ .Params.short | markdownify }}</p>
-  {{- $v := slice (dict "k" "short_osnovna" "l" (i18n "for_pupils")) (dict "k" "short_srednja" "l" (i18n "for_secondary")) (dict "k" "short_strokovnjaki" "l" (i18n "for_experts")) }}
-  {{- $page := . }}
-  {{- if or .Params.short_osnovna .Params.short_srednja .Params.short_strokovnjaki }}
-  <dl class="level-defs">
-    {{- range $v }}{{ $t := index $page.Params .k }}{{ if $t }}<div><dt>{{ .l }}</dt><dd>{{ $t | markdownify }}</dd></div>{{ end }}{{ end }}
-  </dl>
-  {{- end }}
   {{- with .Content }}<div class="prose">{{ . }}</div>{{ end }}
 
   {{- with .Params.related }}

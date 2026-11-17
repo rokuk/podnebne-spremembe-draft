@@ -1,5 +1,6 @@
 ---
 title: "Reke in podtalnica v Sloveniji"
+question: "Od kod prihaja voda, ki jo pijemo v Sloveniji?"
 status: outline
 weight: 2
 teme: [vode]

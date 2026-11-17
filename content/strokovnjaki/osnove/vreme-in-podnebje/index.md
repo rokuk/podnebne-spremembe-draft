@@ -1,5 +1,6 @@
 ---
 title: "Vreme in podnebje: izhodišča za strokovno rabo"
+question: "Katere podatke in referenčna obdobja izbrati in kaj lahko sklepamo iz posameznega dogodka?"
 status: published
 weight: 0
 teme: [osnove]

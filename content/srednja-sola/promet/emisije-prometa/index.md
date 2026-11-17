@@ -1,5 +1,6 @@
 ---
 title: "Emisije prometa"
+question: "Zakaj so izpusti iz prometa v Sloveniji tako visoki?"
 status: outline
 weight: 1
 teme: [promet]

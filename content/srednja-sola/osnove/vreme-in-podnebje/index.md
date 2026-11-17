@@ -1,5 +1,6 @@
 ---
 title: "Vreme in podnebje: razlika, povprečja in nihanja"
+question: "Zakaj vremena ne moremo napovedati za mesece vnaprej, podnebje pa lahko opišemo za desetletja?"
 status: published
 weight: 0
 teme: [osnove]

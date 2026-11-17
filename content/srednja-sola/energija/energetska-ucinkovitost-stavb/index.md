@@ -1,5 +1,6 @@
 ---
 title: "Energetska učinkovitost stavb"
+question: "Kako lahko stavbe porabijo bistveno manj energije za ogrevanje in hlajenje?"
 status: outline
 weight: 3
 teme: [energija]

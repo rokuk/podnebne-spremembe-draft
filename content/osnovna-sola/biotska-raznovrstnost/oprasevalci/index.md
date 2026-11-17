@@ -1,5 +1,6 @@
 ---
 title: "Opraševalci"
+question: "Zakaj potrebujemo čebele in druge opraševalce in kako jim toplejše podnebje škodi?"
 status: outline
 weight: 2
 teme: [biotska-raznovrstnost]

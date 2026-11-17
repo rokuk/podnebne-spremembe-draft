@@ -1,5 +1,6 @@
 ---
 title: "Ločevanje odpadkov"
+question: "Zakaj ločujemo odpadke in kaj se z njimi zgodi potem?"
 status: outline
 weight: 1
 teme: [industrija-in-krozno]

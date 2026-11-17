@@ -1,5 +1,6 @@
 ---
 title: "Gozd kot zeleno skladišče ogljika"
+question: "Kako drevesa iz zraka vzamejo ogljik in ga shranijo?"
 status: outline
 weight: 2
 teme: [gozdarstvo]

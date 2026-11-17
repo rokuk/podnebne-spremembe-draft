@@ -1,5 +1,6 @@
 ---
 title: "Podnebni sistem in energijska bilanca Zemlje"
+question: "Kaj določa temperaturo Zemlje in kako jo spreminjajo toplogredni plini?"
 status: published
 weight: 1
 teme: [osnove]

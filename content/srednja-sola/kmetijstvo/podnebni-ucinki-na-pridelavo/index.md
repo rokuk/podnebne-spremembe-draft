@@ -1,5 +1,6 @@
 ---
 title: "Podnebni učinki na pridelavo"
+question: "Kako višje temperature, suše in neurja vplivajo na kmetijsko pridelavo?"
 status: outline
 weight: 1
 teme: [kmetijstvo]

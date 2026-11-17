@@ -23,7 +23,7 @@ other = 'Viri'
 [toc]
 other = 'Kazalo'
 [on_this_page]
-other = 'Na tej strani'
+other = 'Kazalo'
 [for_teachers]
 other = 'Učitelji'
 [lesson_plans]
@@ -38,8 +38,8 @@ other = 'Prenesi'
 other = 'Prenesi vse (ZIP)'
 [file_size]
 other = 'Velikost'
-[multimedia]
-other = 'Multimedija'
+[images]
+other = 'Slike'
 [news]
 other = 'Novice'
 [about]
@@ -92,18 +92,14 @@ other = 'Trajanje'
 other = 'Licenca'
 [all]
 other = 'Vse'
-[results]
-other = 'Število zadetkov'
 [no_results]
 other = 'Za izbrane filtre ni zadetkov.'
-[reset_filters]
-other = 'Počisti filtre'
 [filters]
 other = 'Filtri'
 [topics]
 other = 'Teme'
 [topics_other_levels]
-other = 'Ta tema na drugih stopnjah'
+other = 'Tema na drugih stopnjah'
 [learning_path]
 other = 'Članki v tem poglavju'
 [materials_for_teachers]
@@ -134,12 +130,6 @@ other = 'Vdelava'
 other = 'Uporabljeno v člankih'
 [related_terms]
 other = 'Sorodni pojmi'
-[for_pupils]
-other = 'Za osnovno šolo'
-[for_secondary]
-other = 'Za srednjo šolo'
-[for_experts]
-other = 'Za strokovnjake'
 [page]
 other = 'Stran'
 [previous]
@@ -161,7 +151,7 @@ other = 'Začnite z osnovami'
 [latest_plans]
 other = 'Najnovejše učne priprave'
 [latest_media]
-other = 'Nove multimedijske vsebine'
+other = 'Nove slike'
 [latest_news]
 other = 'Novice'
 [show_all]
@@ -186,3 +176,5 @@ other = 'Za zdaj še ni vsebine.'
 other = 'Temni način'
 [light_mode]
 other = 'Svetli način'
+[materials]
+other = 'Gradiva'

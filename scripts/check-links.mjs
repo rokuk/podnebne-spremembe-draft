@@ -16,7 +16,7 @@ const htmlFiles = files.filter((f) => f.endsWith('.html'))
 const ids = new Map()
 for (const f of htmlFiles) {
   const html = fs.readFileSync(f, 'utf8')
-  ids.set(f, new Set([...html.matchAll(/\sid="([^"]+)"/g)].map((m) => m[1])))
+  ids.set(f, new Set([...html.matchAll(/\sid=(?:"([^"]+)"|'([^']+)'|([^\s>"']+))/g)].map((m) => m[1] ?? m[2] ?? m[3])))
 }
 
 function resolve(from, url) {
@@ -33,8 +33,9 @@ function resolve(from, url) {
 let bad = 0
 for (const f of htmlFiles) {
   const html = fs.readFileSync(f, 'utf8')
-  for (const m of html.matchAll(/(?:href|src)="([^"]+)"/g)) {
-    const url = m[1]
+  // Attribute values may be unquoted in minified output (href=/foo/).
+  for (const m of html.matchAll(/\s(?:href|src)=(?:"([^"]+)"|'([^']+)'|([^\s>"']+))/g)) {
+    const url = (m[1] ?? m[2] ?? m[3]).replace(/&amp;/g, '&')
     if (/^(https?:|mailto:|tel:|data:|javascript:)/.test(url)) continue
     if (url.startsWith('/pagefind/')) continue // created by the Pagefind post-build step
     const { target, hash } = resolve(f, url)

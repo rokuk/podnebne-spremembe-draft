@@ -1,5 +1,6 @@
 ---
 title: "Odpornost zdravstvenega sistema"
+question: "Kako zdravstveni sistem pripraviti na podnebne obremenitve?"
 status: outline
 weight: 3
 teme: [zdravje]

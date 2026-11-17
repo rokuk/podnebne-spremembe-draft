@@ -1,5 +1,6 @@
 ---
 title: "Hidrološki krog in vodna bilanca"
+question: "Kako segrevanje spreminja kroženje vode in njeno razporeditev?"
 status: outline
 weight: 1
 teme: [vode]

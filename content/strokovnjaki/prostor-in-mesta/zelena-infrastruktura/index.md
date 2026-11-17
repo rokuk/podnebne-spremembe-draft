@@ -1,5 +1,6 @@
 ---
 title: "Zelena infrastruktura"
+question: "Kako načrtovati in vzdrževati zeleno infrastrukturo, da bo zares zmanjšala tveganja?"
 status: outline
 weight: 3
 teme: [prostor-in-mesta]

@@ -1,7 +1,7 @@
 ---
 title: "{{ replace .File.ContentBaseName "-" " " | title }}"
 status: published
-type: multimedija      # obvezno: element se prikaže v zbirki Gradiva za prenos kot multimedija
+type: slika            # obvezno: element se prikaže v zbirki Gradiva za prenos kot slika
 teme: []
 vrste: [shema]           # shema | infografika | fotografija | video | animacija
 alt: ""                  # obvezno opisno besedilo slike

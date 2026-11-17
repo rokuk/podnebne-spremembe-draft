@@ -1,5 +1,6 @@
 ---
 title: "Natura 2000"
+question: "Kako varovana območja Natura 2000 pomagajo ohranjati vrste v spreminjajočem se podnebju?"
 status: outline
 weight: 3
 teme: [biotska-raznovrstnost]

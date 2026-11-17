@@ -1,5 +1,6 @@
 ---
 title: "Viri energije"
+question: "Od kod dobimo energijo za elektriko, ogrevanje in vožnjo?"
 status: outline
 weight: 1
 teme: [energija]

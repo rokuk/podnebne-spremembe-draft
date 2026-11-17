@@ -1,5 +1,6 @@
 ---
 title: "Blaženje, prilagajanje in okvir politik"
+question: "Kako se dopolnjujeta blaženje in prilagajanje in kateri instrumenti ju urejajo?"
 status: published
 weight: 2
 teme: [osnove]

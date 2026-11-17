@@ -1,5 +1,6 @@
 ---
 title: "Skupna kmetijska politika in podnebje"
+question: "Kako skupna kmetijska politika podpira blaženje in prilagajanje?"
 status: outline
 weight: 3
 teme: [kmetijstvo]

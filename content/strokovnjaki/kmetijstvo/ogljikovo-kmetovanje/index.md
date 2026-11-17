@@ -1,5 +1,6 @@
 ---
 title: "Ogljikovo kmetovanje"
+question: "Kako lahko kmetijske prakse povečajo zalogo ogljika v tleh in kako to preverljivo izmerimo?"
 status: outline
 weight: 4
 teme: [kmetijstvo]

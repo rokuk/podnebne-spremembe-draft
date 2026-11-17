@@ -1,5 +1,6 @@
 ---
 title: "Emisije industrije"
+question: "Katere industrijske dejavnosti povzročajo največ izpustov in kako jih zmanjšati?"
 status: outline
 weight: 1
 teme: [industrija-in-krozno]

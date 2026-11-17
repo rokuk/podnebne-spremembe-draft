@@ -1,5 +1,6 @@
 ---
 title: "Poplavna varnost"
+question: "Kako zmanjšamo škodo zaradi poplav?"
 status: outline
 weight: 2
 teme: [vode]

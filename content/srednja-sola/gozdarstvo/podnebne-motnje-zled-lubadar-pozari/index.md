@@ -1,5 +1,6 @@
 ---
 title: "Podnebne motnje: žled, lubadar, požari"
+question: "Zakaj žled, lubadar in požari v slovenskih gozdih povzročajo vse več škode?"
 status: outline
 weight: 2
 teme: [gozdarstvo]

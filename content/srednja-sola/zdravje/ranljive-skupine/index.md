@@ -1,5 +1,6 @@
 ---
 title: "Ranljive skupine"
+question: "Koga podnebne spremembe najbolj ogrožajo in zakaj?"
 status: outline
 weight: 4
 teme: [zdravje]

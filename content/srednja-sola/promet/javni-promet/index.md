@@ -1,5 +1,6 @@
 ---
 title: "Javni promet"
+question: "Kaj bi javni promet naredilo privlačnejši od avtomobila?"
 status: outline
 weight: 3
 teme: [promet]

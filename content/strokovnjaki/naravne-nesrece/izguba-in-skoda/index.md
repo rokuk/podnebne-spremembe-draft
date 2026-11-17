@@ -1,5 +1,6 @@
 ---
 title: "Izguba in škoda"
+question: "Kako ocenjujemo in financiramo izgube in škodo zaradi podnebnih sprememb?"
 status: outline
 weight: 3
 teme: [naravne-nesrece]

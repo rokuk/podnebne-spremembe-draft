@@ -17,9 +17,9 @@
     </section>
     {{- end }}
   {{- end }}
-  {{- $res := where $visible "Type" "in" (slice "priprava" "gradivo" "multimedija") }}
+  {{- $res := where $visible "Type" "in" (slice "priprava" "gradivo" "slika") }}
   {{- if $res }}
-  <h2>{{ i18n "materials_for_teachers" }} · {{ i18n "multimedia" }}</h2>
+  <h2>{{ i18n "materials" }}</h2>
   <div class="card-grid">
     {{- range $res.ByTitle }}{{ partial "card-item.html" . }}{{ end }}
   </div>

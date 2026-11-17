@@ -1,0 +1,21 @@
+{{- /* Decorative hero background: global mean surface temperature anomaly, Berkeley Earth Land + Ocean
+       (data/global_temperature.json, built by scripts/global-temp.mjs). Purely visual, hidden from assistive tech. */ -}}
+{{- with hugo.Data.global_temperature }}
+{{- $ys := .years }}
+{{- $n := len $ys }}
+{{- $min := (index $ys 0).a }}{{ $max := $min }}
+{{- range $ys }}{{ $min = math.Min $min .a }}{{ $max = math.Max $max .a }}{{ end }}
+{{- $span := sub $max $min }}
+{{- /* x: 0..1000, y: 0..100; the curve uses the lower ~70 % of the hero (y 30..96). */}}
+{{- $pts := slice }}
+{{- range $i, $e := $ys }}
+  {{- $x := div (mul 1000.0 $i) (sub $n 1) }}
+  {{- $y := sub 96.0 (mul 66.0 (div (sub $e.a $min) $span)) }}
+  {{- $pts = $pts | append (printf "%.1f,%.2f" $x $y) }}
+{{- end }}
+{{- $line := delimit $pts " " }}
+<svg class="hero-temp" viewBox="0 0 1000 100" preserveAspectRatio="none" aria-hidden="true" focusable="false">
+  <polygon class="hero-temp-area" points="0,100 {{ $line }} 1000,100"/>
+  <polyline class="hero-temp-line" points="{{ $line }}" vector-effect="non-scaling-stroke"/>
+</svg>
+{{- end }}

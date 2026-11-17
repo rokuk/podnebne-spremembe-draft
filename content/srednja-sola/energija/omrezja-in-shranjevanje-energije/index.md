@@ -1,5 +1,6 @@
 ---
 title: "Omrežja in shranjevanje energije"
+question: "Kako zagotoviti dovolj elektrike, ko sonce ne sije in veter ne piha?"
 status: outline
 weight: 4
 teme: [energija]

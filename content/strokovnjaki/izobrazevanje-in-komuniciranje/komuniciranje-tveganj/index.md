@@ -1,5 +1,6 @@
 ---
 title: "Komuniciranje tveganj"
+question: "Kako o podnebnih tveganjih in negotovosti komunicirati jasno in verodostojno?"
 status: outline
 weight: 2
 teme: [izobrazevanje-in-komuniciranje]

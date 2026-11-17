@@ -1,5 +1,6 @@
 ---
 title: "Podnebne spremembe: vzroki, posledice in rešitve"
+question: "Zakaj se podnebje spreminja, kaj to pomeni za nas in kaj lahko storimo?"
 status: published
 weight: 3
 teme: [osnove]

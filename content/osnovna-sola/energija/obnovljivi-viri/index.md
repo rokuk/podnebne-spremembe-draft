@@ -1,5 +1,6 @@
 ---
 title: "Obnovljivi viri"
+question: "Kateri viri energije se ne izčrpajo in zakaj so dobri za podnebje?"
 status: outline
 weight: 2
 teme: [energija]

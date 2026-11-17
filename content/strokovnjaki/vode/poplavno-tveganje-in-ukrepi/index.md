@@ -1,5 +1,6 @@
 ---
 title: "Poplavno tveganje in ukrepi"
+question: "Kako oceniti poplavno tveganje in izbrati učinkovite ukrepe?"
 status: outline
 weight: 2
 teme: [vode]

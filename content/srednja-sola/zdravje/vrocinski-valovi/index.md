@@ -1,5 +1,6 @@
 ---
 title: "Vročinski valovi"
+question: "Kako vročinski valovi vplivajo na zdravje in kako se zaščitimo?"
 status: outline
 weight: 1
 teme: [zdravje]

@@ -25,7 +25,7 @@ When upgrading Hugo, check the build log for deprecation notices.
 |---|---|
 | `content/osnovna-sola`, `srednja-sola`, `strokovnjaki` | One section per level → `<tema>/` topic hub → `<clanek>/index.md` articles |
 | `content/ucitelji/<slug>/`, `content/ucitelji/gradiva` | Lesson plans (listed on the Za učitelje page) and downloadable materials (page bundles; files next to `index.md`) |
-| `content/ucitelji/gradiva` | Also holds multimedia items (`type: multimedija` in front matter; `main.*` image, optional `video:`, transcript) |
+| `content/ucitelji/gradiva` | Also holds image items (`type: slika` in front matter; `main.*` image, optional `video:`, transcript) |
 | `content/glosar` | One file per glossary term |
 | `content/novice`, `o-projektu.md` | News and project page |
 | `content/teme`, `predmeti`, `razredi`, `vrste` | Taxonomy term pages (display names) |
@@ -39,6 +39,7 @@ When upgrading Hugo, check the build log for deprecation notices.
 Create a bundle with an archetype, e.g. `hugo new content --kind clanek srednja-sola/osnove/moj-clanek`. Front matter is the contract:
 
 ```yaml
+question: "…?"           # the one question the article answers; shown under the title on the chapter page
 status: published        # published | outline  (outline = skeleton, shown as "V pripravi", noindex)
 teme: [osnove]           # topic id; same id across levels links the three versions together
 razredi: [gimnazija]     # OŠ: "1-3" "4-6" "7-9"; SŠ: gimnazija, strokovne, poklicne
@@ -65,7 +66,7 @@ licence confirmation (CC BY 4.0 is a placeholder), accessibility audit, hosting 
 
 ## Warming stripes (toplotne črte)
 
-The home page and the teacher material *Toplotne črte Slovenije* use `data/stripes_slovenija.json`, generated from ARSO
+The teacher material *Toplotne črte Slovenije* uses `data/stripes_slovenija.json`, generated from ARSO
 environmental indicator PP04-1 (annual mean air temperature at six stations, CSV export from
 https://kazalci.arso.gov.si/sl/content/temperatura-1, stored in `data-src/`):
 
@@ -76,3 +77,17 @@ node scripts/stripes.mjs
 For each station the anomaly from its 1961–1990 mean is computed; the yearly value is the mean of the six station anomalies.
 The script writes the JSON and `content/ucitelji/gradiva/toplotne-crte-slovenija/main.svg`. To update, download a newer
 CSV export from the ARSO indicator page into `data-src/` and re-run the script (pass the file path as an argument).
+
+## Global temperature (hero background)
+
+The faint curve behind the home page hero is the annual global mean surface temperature anomaly (1850–present,
+relative to 1951–1980) from [Berkeley Earth](https://berkeleyearth.org/data/), Land + Ocean, air temperature above sea ice.
+The source file is stored in `data-src/berkeley-earth/`; to update, download a newer
+[Land_and_Ocean_summary.txt](https://berkeley-earth-temperature.s3.us-west-1.amazonaws.com/Global/Land_and_Ocean_summary.txt)
+there and run:
+
+```bash
+node scripts/global-temp.mjs
+```
+
+This writes `data/global_temperature.json`, which `layouts/partials/hero-temp.html` draws.

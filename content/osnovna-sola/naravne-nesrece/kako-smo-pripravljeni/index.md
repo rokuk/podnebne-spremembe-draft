@@ -1,5 +1,6 @@
 ---
 title: "Kako smo pripravljeni"
+question: "Kako se lahko pripravimo na naravne nesreče?"
 status: outline
 weight: 4
 teme: [naravne-nesrece]

@@ -1,5 +1,6 @@
 ---
 title: "Odpadki"
+question: "Kako ravnanje z odpadki vpliva na podnebje?"
 status: outline
 weight: 4
 teme: [industrija-in-krozno]

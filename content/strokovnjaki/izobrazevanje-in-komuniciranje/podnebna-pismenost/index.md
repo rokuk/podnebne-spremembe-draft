@@ -1,5 +1,6 @@
 ---
 title: "Podnebna pismenost"
+question: "Katera znanja in veščine sestavljajo podnebno pismenost in kako jih razvijati?"
 status: outline
 weight: 1
 teme: [izobrazevanje-in-komuniciranje]

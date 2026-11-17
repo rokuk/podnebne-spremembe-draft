@@ -1,5 +1,6 @@
 ---
 title: "Suša in oskrba s pitno vodo"
+question: "Ali bo v Sloveniji v prihodnje dovolj pitne vode?"
 status: outline
 weight: 3
 teme: [vode]

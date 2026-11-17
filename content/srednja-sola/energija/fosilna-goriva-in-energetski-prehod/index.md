@@ -1,5 +1,6 @@
 ---
 title: "Fosilna goriva in energetski prehod"
+question: "Zakaj in kako opuščamo fosilna goriva?"
 status: outline
 weight: 1
 teme: [energija]

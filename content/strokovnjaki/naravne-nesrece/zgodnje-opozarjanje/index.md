@@ -1,5 +1,6 @@
 ---
 title: "Zgodnje opozarjanje"
+question: "Kaj naredi sistem zgodnjega opozarjanja učinkovit od napovedi do odziva?"
 status: outline
 weight: 2
 teme: [naravne-nesrece]

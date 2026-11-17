@@ -1,5 +1,6 @@
 ---
 title: "Kako se vozimo v šolo"
+question: "Kako lahko pridemo v šolo na podnebju prijazen način?"
 status: outline
 weight: 1
 teme: [promet]

@@ -1,5 +1,6 @@
 ---
 title: "Živali in rastline se selijo"
+question: "Zakaj se živali in rastline zaradi toplejšega podnebja selijo na nova območja?"
 status: outline
 weight: 1
 teme: [biotska-raznovrstnost]

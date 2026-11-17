@@ -1,5 +1,6 @@
 ---
 title: "Pravični prehod"
+question: "Kako izvesti energetski prehod tako, da so bremena pravično porazdeljena?"
 status: outline
 weight: 4
 teme: [energija]

@@ -2,15 +2,12 @@
 - slug: osnovna-sola
   name: Osnovna šola
   short: OŠ
-  short_key: osnovna      # selects `short_osnovna` in glossary terms
   audience: Učenke in učenci 1.–9. razreda ter njihovi učitelji
 - slug: srednja-sola
   name: Srednja šola
   short: SŠ
-  short_key: srednja
   audience: Dijakinje in dijaki gimnazij, strokovnih in poklicnih šol ter njihovi učitelji
 - slug: strokovnjaki
   name: Strokovnjaki
   short: ST
-  short_key: strokovnjaki
   audience: Strokovnjaki različnih področij, zaposleni v upravi in odločevalci

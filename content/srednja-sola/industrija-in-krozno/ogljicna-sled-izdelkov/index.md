@@ -1,5 +1,6 @@
 ---
 title: "Ogljična sled izdelkov"
+question: "Koliko izpustov povzroči izdelek v svojem celotnem življenjskem ciklu?"
 status: outline
 weight: 3
 teme: [industrija-in-krozno]

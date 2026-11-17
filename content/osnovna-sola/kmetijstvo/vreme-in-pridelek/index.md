@@ -1,5 +1,6 @@
 ---
 title: "Vreme in pridelek"
+question: "Kako vreme vpliva na to, koliko hrane zraste na poljih?"
 status: outline
 weight: 2
 teme: [kmetijstvo]

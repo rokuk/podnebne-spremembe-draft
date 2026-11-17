@@ -1,5 +1,6 @@
 ---
 title: "Suša in poplave na kmetiji"
+question: "Kaj suša in poplave pomenijo za kmete in njihov pridelek?"
 status: outline
 weight: 3
 teme: [kmetijstvo]

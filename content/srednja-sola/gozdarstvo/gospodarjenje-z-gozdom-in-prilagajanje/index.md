@@ -1,5 +1,6 @@
 ---
 title: "Gospodarjenje z gozdom in prilagajanje"
+question: "Kako lahko gozdove gospodarimo tako, da bodo kos toplejšemu podnebju?"
 status: outline
 weight: 3
 teme: [gozdarstvo]

@@ -1,5 +1,6 @@
 ---
 title: "Krožno gospodarstvo"
+question: "Kako lahko surovine in izdelke uporabljamo dlje in z manj odpadki?"
 status: outline
 weight: 2
 teme: [industrija-in-krozno]

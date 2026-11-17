@@ -1,5 +1,6 @@
 ---
 title: "Hrana, ki jo zavržemo"
+question: "Zakaj je zavržena hrana slaba tudi za podnebje?"
 status: outline
 weight: 3
 teme: [industrija-in-krozno]

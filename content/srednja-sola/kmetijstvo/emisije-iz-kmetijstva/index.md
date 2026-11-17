@@ -1,5 +1,6 @@
 ---
 title: "Emisije iz kmetijstva"
+question: "Od kod prihajajo toplogredni plini iz kmetijstva?"
 status: outline
 weight: 2
 teme: [kmetijstvo]

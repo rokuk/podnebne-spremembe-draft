@@ -1,5 +1,6 @@
 ---
 title: "Naravne motnje in sanacija"
+question: "Kako načrtovati sanacijo po naravnih motnjah, da bodo sestoji odpornejši?"
 status: outline
 weight: 2
 teme: [gozdarstvo]

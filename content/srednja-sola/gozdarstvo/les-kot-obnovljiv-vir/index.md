@@ -1,5 +1,6 @@
 ---
 title: "Les kot obnovljiv vir"
+question: "Kdaj je raba lesa dobra za podnebje?"
 status: outline
 weight: 4
 teme: [gozdarstvo]

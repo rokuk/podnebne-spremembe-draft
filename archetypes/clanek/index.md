@@ -1,5 +1,6 @@
 ---
 title: "{{ replace .File.ContentBaseName "-" " " | title }}"
+question: ""              # eno vprašanje, na katero članek odgovori (prikazano na strani poglavja)
 status: published        # published | outline
 weight: 1
 teme: []                 # npr. [osnove]

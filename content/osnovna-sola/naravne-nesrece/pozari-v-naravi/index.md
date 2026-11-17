@@ -1,5 +1,6 @@
 ---
 title: "Požari v naravi"
+question: "Zakaj je požarov v naravi vse več in kako jih preprečimo?"
 status: outline
 weight: 2
 teme: [naravne-nesrece]

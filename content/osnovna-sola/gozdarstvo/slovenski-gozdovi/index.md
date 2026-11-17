@@ -1,5 +1,6 @@
 ---
 title: "Slovenski gozdovi"
+question: "Kakšni so slovenski gozdovi in zakaj so tako pomembni?"
 status: outline
 weight: 1
 teme: [gozdarstvo]

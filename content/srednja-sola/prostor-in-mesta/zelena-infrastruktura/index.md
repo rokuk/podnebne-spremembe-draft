@@ -1,5 +1,6 @@
 ---
 title: "Zelena infrastruktura"
+question: "Kako drevesa, parki in zelene strehe pomagajo mestom v vročini in nalivih?"
 status: outline
 weight: 2
 teme: [prostor-in-mesta]

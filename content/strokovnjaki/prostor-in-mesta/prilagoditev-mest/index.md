@@ -1,5 +1,6 @@
 ---
 title: "Prilagoditev mest"
+question: "Kako načrtovati prilagajanje mest na vročino, nalive in sušo?"
 status: outline
 weight: 1
 teme: [prostor-in-mesta]

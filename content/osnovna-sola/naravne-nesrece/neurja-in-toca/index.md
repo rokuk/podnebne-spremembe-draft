@@ -1,5 +1,6 @@
 ---
 title: "Neurja in toča"
+question: "Kako nastanejo neurja in toča in kaj storimo, ko pridejo?"
 status: outline
 weight: 3
 teme: [naravne-nesrece]

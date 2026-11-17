@@ -1,5 +1,6 @@
 ---
 title: "Prenova stavb"
+question: "Zakaj je prenova obstoječih stavb ključna za podnebne cilje?"
 status: outline
 weight: 3
 teme: [prostor-in-mesta]

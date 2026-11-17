@@ -1,5 +1,6 @@
 ---
 title: "Načrt upravljanja voda"
+question: "Kako načrt upravljanja voda upošteva podnebne spremembe?"
 status: outline
 weight: 1
 teme: [vode]

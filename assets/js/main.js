@@ -84,7 +84,6 @@
   document.querySelectorAll('[data-listing]').forEach(function (root) {
     var form = root.querySelector('[data-filters]');
     var cards = Array.prototype.slice.call(root.querySelectorAll('[data-cards] > .card'));
-    var count = root.querySelector('[data-count]');
     var empty = root.querySelector('[data-empty]');
     if (!form) return;
     var selects = Array.prototype.slice.call(form.querySelectorAll('select[data-filter]'));
@@ -100,7 +99,6 @@
         card.hidden = !ok;
         if (ok) shown++;
       });
-      if (count) count.textContent = shown;
       if (empty) empty.hidden = shown !== 0;
       var p = new URLSearchParams();
       selects.forEach(function (s) { if (s.value) p.set(s.getAttribute('data-filter'), s.value); });
@@ -113,7 +111,6 @@
       if (v && Array.prototype.some.call(s.options, function (o) { return o.value === v; })) s.value = v;
       s.addEventListener('change', apply);
     });
-    form.addEventListener('reset', function () { setTimeout(apply, 0); });
     apply();
   });
 

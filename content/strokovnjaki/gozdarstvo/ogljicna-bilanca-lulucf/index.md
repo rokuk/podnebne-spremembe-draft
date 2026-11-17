@@ -1,5 +1,6 @@
 ---
 title: "Ogljična bilanca (LULUCF)"
+question: "Kako se v sektorju LULUCF obračunavajo ponori in izpusti ter kakšne obveznosti ima Slovenija?"
 status: outline
 weight: 3
 teme: [gozdarstvo]

@@ -1,5 +1,6 @@
 ---
 title: "Trajnostna mobilnost"
+question: "Kateri ukrepi najbolj zmanjšajo izpuste prometa v občinah in regijah?"
 status: outline
 weight: 1
 teme: [promet]

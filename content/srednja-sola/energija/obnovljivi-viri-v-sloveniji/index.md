@@ -1,5 +1,6 @@
 ---
 title: "Obnovljivi viri v Sloveniji"
+question: "Koliko energije v Sloveniji pridobimo iz obnovljivih virov in kje so možnosti za več?"
 status: outline
 weight: 2
 teme: [energija]

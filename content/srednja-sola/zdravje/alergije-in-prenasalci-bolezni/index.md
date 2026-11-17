@@ -1,5 +1,6 @@
 ---
 title: "Alergije in prenašalci bolezni"
+question: "Zakaj se zaradi toplejšega podnebja podaljšuje sezona alergij in širijo klopi in komarji?"
 status: outline
 weight: 2
 teme: [zdravje]

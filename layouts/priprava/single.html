@@ -4,7 +4,7 @@
 <article class="article lesson" data-pagefind-body>
   {{ partial "pagefind-meta.html" . }}
   <header class="container article-header">
-    <p class="eyebrow">{{ partial "type-label.html" .Type }}</p>
+    <p class="eyebrow">{{ partial "type-label.html" . }}</p>
     {{ partial "badges.html" . }}
     <h1 data-pagefind-meta="title">{{ .Title }}</h1>
     <dl class="meta-strip">
@@ -82,14 +82,6 @@
         <p>{{ if .Params.authors }}{{ delimit .Params.authors ", " }}{{ else }}{{ site.Title }}{{ end }} ({{ (or .Lastmod .Date).Format "2006" }}). {{ .Title }}. {{ site.Title }}. <a href="{{ .Permalink }}">{{ .Permalink }}</a></p>
       </section>
     </div>
-    <aside class="article-aside" aria-label="Dodatno">
-      <div class="aside-sticky">
-        {{- if .Resources.ByType "application" }}
-        <section class="side-box" data-accent="ucitelji"><h2>{{ i18n "attachments" }}</h2><p><a class="button" href="#priloge">{{ i18n "download" }}</a></p></section>
-        {{- end }}
-        <section class="side-box"><h2>{{ i18n "last_updated" }}</h2><p><time datetime="{{ (or .Lastmod .Date).Format "2006-01-02" }}">{{ (or .Lastmod .Date).Format "2. 1. 2006" }}</time></p></section>
-      </div>
-    </aside>
   </div>
 </article>
 {{ end }}

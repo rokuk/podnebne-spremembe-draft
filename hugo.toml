@@ -29,7 +29,7 @@ timeZone = 'Europe/Ljubljana'
 [params]
   # Visual design: 'a' = original (green, sticky header, gradient hero), 'b' = alternative (warm editorial, serif headings).
   design = 'b'
-  description = 'Izobraževalni portal o podnebnih spremembah in prilagajanju: članki, učne priprave, gradiva za prenos in multimedija za učitelje, dijake, strokovnjake in odločevalce.'
+  description = 'Izobraževalni portal o podnebnih spremembah in prilagajanju: članki, učne priprave, gradiva za prenos in slike za učitelje, dijake, strokovnjake in odločevalce.'
   # Show skeleton ("v pripravi") articles in lists. Set to false for a production launch without outlines.
   showOutlines = true
   licenseName = 'CC BY 4.0'

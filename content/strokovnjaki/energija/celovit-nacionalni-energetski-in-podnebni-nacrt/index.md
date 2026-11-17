@@ -1,5 +1,6 @@
 ---
 title: "Celovit nacionalni energetski in podnebni načrt"
+question: "Katere cilje in ukrepe določa NEPN in kako je z njihovim izvajanjem?"
 status: outline
 weight: 1
 teme: [energija]

@@ -1,5 +1,6 @@
 ---
 title: "Od njive do krožnika"
+question: "Kakšno pot opravi hrana, preden pride na naš krožnik?"
 status: outline
 weight: 1
 teme: [kmetijstvo]

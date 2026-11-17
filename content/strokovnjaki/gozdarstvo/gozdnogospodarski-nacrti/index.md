@@ -1,5 +1,6 @@
 ---
 title: "Gozdnogospodarski načrti"
+question: "Kako vključiti podnebne projekcije in tveganja v gozdnogospodarsko načrtovanje?"
 status: outline
 weight: 1
 teme: [gozdarstvo]

@@ -1,5 +1,6 @@
 ---
 title: "Prehranske verige in trajnostna prehrana"
+question: "Kako naša izbira hrane vpliva na izpuste v prehranski verigi?"
 status: outline
 weight: 4
 teme: [kmetijstvo]

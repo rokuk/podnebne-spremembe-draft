@@ -1,5 +1,6 @@
 ---
 title: "Selitev vrst"
+question: "Zakaj se območja razširjenosti vrst premikajo proti severu in višje v gore?"
 status: outline
 weight: 1
 teme: [biotska-raznovrstnost]

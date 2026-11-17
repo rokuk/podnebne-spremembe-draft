@@ -1,5 +1,6 @@
 ---
 title: "Vključevanje javnosti"
+question: "Kako javnost smiselno vključiti v načrtovanje podnebnih ukrepov?"
 status: outline
 weight: 3
 teme: [izobrazevanje-in-komuniciranje]

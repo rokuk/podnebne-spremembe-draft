@@ -1,5 +1,6 @@
 ---
 title: "Ranljivost kmetijskih sektorjev"
+question: "Kateri kmetijski sektorji v Sloveniji so podnebno najbolj ranljivi?"
 status: outline
 weight: 1
 teme: [kmetijstvo]

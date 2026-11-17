@@ -1,5 +1,6 @@
 ---
 title: "Pot vode v naravi"
+question: "Kakšno pot opravi voda v naravi?"
 status: outline
 weight: 1
 teme: [vode]

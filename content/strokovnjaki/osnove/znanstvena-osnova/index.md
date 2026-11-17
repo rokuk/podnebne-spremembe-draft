@@ -1,5 +1,6 @@
 ---
 title: "Znanstvena osnova podnebnih sprememb in negotovosti"
+question: "Kaj ugotavlja IPCC in kako scenarije in negotovost uporabiti pri načrtovanju?"
 status: published
 weight: 1
 teme: [osnove]

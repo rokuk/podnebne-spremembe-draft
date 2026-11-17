@@ -1,7 +1,7 @@
 ---
 title: "Shema učinka tople grede"
 status: published
-type: multimedija
+type: slika
 teme: [osnove]
 vrste: [shema]
 alt: "Shema: sončni žarki prihajajo do površja Zemlje, površje oddaja infrardeče sevanje, del uide v vesolje, del ga toplogredni plini vrnejo proti površju."

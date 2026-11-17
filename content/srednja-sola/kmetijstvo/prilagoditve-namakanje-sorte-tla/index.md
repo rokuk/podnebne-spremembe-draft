@@ -1,5 +1,6 @@
 ---
 title: "Prilagoditve: namakanje, sorte, tla"
+question: "Kako se lahko kmetijstvo prilagodi bolj sušnemu in vročemu podnebju?"
 status: outline
 weight: 3
 teme: [kmetijstvo]

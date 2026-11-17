@@ -1,5 +1,6 @@
 ---
 title: "Ukrepi ob vročinskih valovih"
+question: "Kateri ukrepi ob vročinskih valovih najbolj zmanjšajo zdravstvena tveganja?"
 status: outline
 weight: 2
 teme: [zdravje]

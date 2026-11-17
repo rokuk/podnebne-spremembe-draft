@@ -1,5 +1,6 @@
 ---
 title: "Toplogredni plini in dokazi o segrevanju"
+question: "Kako vemo, da Zemljo segreva človek?"
 status: published
 weight: 2
 teme: [osnove]
@@ -8,8 +9,8 @@ predmeti: [geografija, kemija, biologija]
 abstract: |
   Koncentracije **toplogrednih plinov** v ozračju so zaradi človekovih dejavnosti danes bistveno višje kot v predindustrijskem obdobju. Članek predstavi glavne pline (ogljikov dioksid, metan, didušikov oksid in fluorirane pline), njihove vire in ponore ter pokaže, na katere neodvisne dokaze se opira znanstveno spoznanje o segrevanju: meritve temperature, toplota v oceanih, dvig morske gladine, taljenje ledu, ledena jedra in izotopski odtis fosilnega ogljika.
 key_points:
-  - "CO2 je zaradi količine in dolgega zadrževanja v ozračju najpomembnejši človeški toplogredni plin; metan, didušikov oksid in fluorirani plini so po molekuli močnejši, a jih je manj."
-  - "Koncentracija CO2 je s približno 280 ppm v predindustrijskem obdobju narasla na okoli 410 ppm leta 2019 in je danes še višja."
+  - "CO₂ je zaradi količine in dolgega zadrževanja v ozračju najpomembnejši človeški toplogredni plin; metan, didušikov oksid in fluorirani plini so po molekuli močnejši, a jih je manj."
+  - "Koncentracija CO₂ je s približno 280 ppm v predindustrijskem obdobju narasla na okoli 410 ppm leta 2019 in je danes še višja."
   - "Globalna površinska temperatura je bila v letih 2011–2020 za 1,09 °C višja kot v letih 1850–1900."
   - "Segrevanje potrjujejo številne neodvisne meritve: temperatura, ocean, morska gladina, led in izotopi ogljika."
 glossary: [toplogredni-plini, ogljikov-dioksid, metan, didusikov-oksid, ogljikov-krog, ponor-ogljika, temperaturna-anomalija, predindustrijsko-obdobje, dvig-morske-gladine, fosilna-goriva]
@@ -27,7 +28,7 @@ sources:
     url: "https://science.nasa.gov/climate-change/evidence/"
     accessed: "2026-11-16"
   - id: noaa-isotopes
-    citation: "NOAA Global Monitoring Laboratory (2026). Isotopic composition of atmospheric CO2. NOAA."
+    citation: "NOAA Global Monitoring Laboratory (2026). Isotopic composition of atmospheric CO₂. NOAA."
     url: "https://gml.noaa.gov/ccgg/isotopes/"
     accessed: "2026-11-16"
   - id: climate-gov-co2

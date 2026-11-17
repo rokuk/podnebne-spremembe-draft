@@ -1,5 +1,6 @@
 ---
 title: "Zmanjšanje in ponovna uporaba"
+question: "Kako lahko ustvarimo manj odpadkov?"
 status: outline
 weight: 2
 teme: [industrija-in-krozno]

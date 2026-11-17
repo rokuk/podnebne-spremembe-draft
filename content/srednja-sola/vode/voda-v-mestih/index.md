@@ -1,5 +1,6 @@
 ---
 title: "Voda v mestih"
+question: "Kako lahko mesta bolje zadržijo in izkoristijo padavinsko vodo?"
 status: outline
 weight: 5
 teme: [vode]

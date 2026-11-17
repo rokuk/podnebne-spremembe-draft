@@ -1,5 +1,6 @@
 ---
 title: "Podnebna tveganja podjetij"
+question: "Kako podjetja prepoznajo in ovrednotijo fizična in tranzicijska podnebna tveganja?"
 status: outline
 weight: 2
 teme: [industrija-in-krozno]

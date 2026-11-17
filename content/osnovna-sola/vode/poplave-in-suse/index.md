@@ -1,5 +1,6 @@
 ---
 title: "Poplave in suše"
+question: "Zakaj imamo včasih preveč, včasih pa premalo vode?"
 status: outline
 weight: 3
 teme: [vode]

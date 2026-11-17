@@ -1,4 +1,4 @@
 {{- /* Hidden Pagefind filter markers. Use inside an element that has data-pagefind-body. */ -}}
-<span hidden data-pagefind-filter="vsebina:{{ partial "type-label.html" .Type }}"></span>
+<span hidden data-pagefind-filter="vsebina:{{ partial "type-label.html" . }}"></span>
 {{- with .Params.level }}<span hidden data-pagefind-filter="stopnja:{{ partial "level-name.html" . }}"></span>{{ end }}
 {{- range .Params.teme }}<span hidden data-pagefind-filter="tema:{{ partial "term-title.html" (dict "tax" "teme" "slug" .) }}"></span>{{ end }}

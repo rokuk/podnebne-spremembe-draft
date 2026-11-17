@@ -1,5 +1,6 @@
 ---
 title: "Učinek tople grede"
+question: "Zakaj je na Zemlji dovolj toplo za življenje in kako ljudje to spreminjamo?"
 status: published
 weight: 2
 teme: [osnove]

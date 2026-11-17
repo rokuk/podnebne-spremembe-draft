@@ -1,5 +1,6 @@
 ---
 title: "Poročanje o trajnosti (CSRD)"
+question: "Kaj zahteva direktiva CSRD pri poročanju o podnebju in koga zavezuje?"
 status: outline
 weight: 3
 teme: [industrija-in-krozno]

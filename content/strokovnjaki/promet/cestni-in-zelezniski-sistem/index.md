@@ -1,5 +1,6 @@
 ---
 title: "Cestni in železniški sistem"
+question: "Kako preusmeriti tovorni in potniški promet s cest na železnico?"
 status: outline
 weight: 2
 teme: [promet]

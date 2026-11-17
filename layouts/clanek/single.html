@@ -48,11 +48,9 @@
       <section id="slovarcek" class="backmatter" aria-labelledby="slovarcek-h">
         <h2 id="slovarcek-h">{{ i18n "glossary" }}</h2>
         <dl class="glossary-list">
-          {{- $key := "" }}
-          {{- range hugo.Data.levels }}{{ if eq .slug $page.Params.level }}{{ $key = .short_key }}{{ end }}{{ end }}
           {{- range . }}
           {{- with site.GetPage (printf "/glosar/%s" .) }}
-          {{- $def := or (index .Params (printf "short_%s" $key)) .Params.short }}
+          {{- $def := .Params.short }}
           <div><dt><a href="{{ .RelPermalink }}">{{ .Title }}</a></dt><dd>{{ $def | markdownify }}</dd></div>
           {{- else }}{{ errorf "Article %s: unknown glossary term %q" $page.File.Path . }}{{ end }}
           {{- end }}
@@ -112,7 +110,7 @@
         {{- if $mats }}
         <section class="side-box" data-accent="ucitelji">
           <h2>{{ i18n "materials_for_teachers" }}</h2>
-          <ul class="plain">{{ range $mats }}<li><a href="{{ .RelPermalink }}">{{ .Title }}</a><span class="muted block">{{ partial "type-label.html" .Type }}</span></li>{{ end }}</ul>
+          <ul class="plain">{{ range $mats }}<li><a href="{{ .RelPermalink }}">{{ .Title }}</a><span class="muted block">{{ partial "type-label.html" . }}</span></li>{{ end }}</ul>
         </section>
         {{- end }}
 
@@ -125,7 +123,7 @@
 
         {{- $topic := index .Params.teme 0 }}
         {{- with $topic }}
-        <section class="side-box">
+        <section class="side-box side-box-plain">
           <h2>{{ i18n "topics_other_levels" }}</h2>
           <ul class="plain">
             {{- if $page.Params.other_levels }}

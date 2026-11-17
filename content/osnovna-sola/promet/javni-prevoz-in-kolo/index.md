@@ -1,5 +1,6 @@
 ---
 title: "Javni prevoz in kolo"
+question: "Zakaj sta avtobus in kolo boljša za podnebje kot avto?"
 status: outline
 weight: 2
 teme: [promet]

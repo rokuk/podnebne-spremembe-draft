@@ -16,7 +16,7 @@
       {{- range $items }}
       <li class="path-item{{ if eq .Params.status "outline" }} is-outline{{ end }}">
         <h3><a href="{{ .RelPermalink }}">{{ .Title }}</a>{{ if eq .Params.status "outline" }} <span class="badge badge-muted">{{ i18n "under_construction" }}</span>{{ end }}</h3>
-        {{- with .Params.abstract }}<p>{{ . | markdownify | plainify | truncate 200 }}</p>{{ end }}
+        {{- with .Params.question }}<p class="path-question">{{ . }}</p>{{ end }}
       </li>
       {{- end }}
     </ol>
@@ -33,10 +33,10 @@
       <ul class="plain">{{ range first 5 $mat }}<li><a href="{{ .RelPermalink }}">{{ .Title }}</a></li>{{ end }}</ul>
     </section>
     {{- end }}
-    {{- $media := where .Pages "Type" "multimedija" }}
+    {{- $media := where .Pages "Type" "slika" }}
     {{- if $media }}
     <section class="side-box">
-      <h2>{{ i18n "multimedia" }}</h2>
+      <h2>{{ i18n "images" }}</h2>
       <ul class="plain">{{ range first 5 $media }}<li><a href="{{ .RelPermalink }}">{{ .Title }}</a></li>{{ end }}</ul>
     </section>
     {{- end }}

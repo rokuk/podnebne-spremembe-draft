@@ -1,7 +1,7 @@
 ---
 title: "Toplotne črte Slovenije 1950–2024"
 status: published
-type: multimedija
+type: slika
 teme: [osnove]
 vrste: [infografika]
 alt: "Toplotne črte Slovenije: 75 navpičnih črt, ena za vsako leto od 1950 do 2024. Do konca osemdesetih let prevladujejo modri in svetli odtenki, od devetdesetih let dalje pa skoraj samo rdeči, najtemnejši v zadnjih letih."

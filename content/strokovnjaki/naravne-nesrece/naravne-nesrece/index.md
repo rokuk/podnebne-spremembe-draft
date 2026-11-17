@@ -1,5 +1,6 @@
 ---
 title: "Naravne nesreče"
+question: "Kako podnebne spremembe spreminjajo pogostost in obseg naravnih nesreč v Sloveniji?"
 status: outline
 weight: 1
 teme: [naravne-nesrece]

@@ -1,5 +1,6 @@
 ---
 title: "Vreme in podnebje"
+question: "Kakšna je razlika med vremenom in podnebjem?"
 status: published
 weight: 1
 teme: [osnove]

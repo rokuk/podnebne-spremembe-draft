@@ -1,5 +1,6 @@
 ---
 title: "Zrak in promet"
+question: "Kako promet onesnažuje zrak, ki ga dihamo?"
 status: outline
 weight: 3
 teme: [promet]

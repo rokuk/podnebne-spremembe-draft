@@ -1,5 +1,6 @@
 ---
 title: "Ekosistemske storitve"
+question: "Katere koristi nam dajejo ekosistemi in kako jih ogrožajo podnebne spremembe?"
 status: outline
 weight: 2
 teme: [biotska-raznovrstnost]

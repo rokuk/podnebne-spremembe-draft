@@ -1,5 +1,6 @@
 ---
 title: "Kako gozd varuje podnebje"
+question: "Kako nam gozd pomaga pri podnebnih spremembah?"
 status: outline
 weight: 4
 teme: [gozdarstvo]

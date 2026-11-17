@@ -1,5 +1,6 @@
 ---
 title: "Ocena tveganj za zdravje"
+question: "Kako oceniti podnebna tveganja za zdravje prebivalstva?"
 status: outline
 weight: 1
 teme: [zdravje]

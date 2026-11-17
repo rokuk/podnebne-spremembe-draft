@@ -1,5 +1,6 @@
 ---
 title: "Zavarovanje in suša"
+question: "Kako lahko zavarovanje in drugi instrumenti zmanjšajo finančno tveganje suše?"
 status: outline
 weight: 2
 teme: [kmetijstvo]

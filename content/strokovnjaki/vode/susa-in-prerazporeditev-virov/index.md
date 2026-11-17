@@ -1,5 +1,6 @@
 ---
 title: "Suša in prerazporeditev virov"
+question: "Kako razporediti vodo med uporabnike, ko je je zaradi suše premalo?"
 status: outline
 weight: 3
 teme: [vode]

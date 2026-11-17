@@ -1,5 +1,6 @@
 ---
 title: "{{ replace .File.ContentBaseName "-" " " | title }}"
+question: ""
 status: outline
 weight: 1
 teme: []

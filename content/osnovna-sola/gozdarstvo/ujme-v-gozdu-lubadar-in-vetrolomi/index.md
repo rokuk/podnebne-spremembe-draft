@@ -1,5 +1,6 @@
 ---
 title: "Ujme v gozdu: lubadar in vetrolomi"
+question: "Zakaj gozdove vse bolj ogrožajo lubadar in močni vetrovi?"
 status: outline
 weight: 3
 teme: [gozdarstvo]

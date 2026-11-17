@@ -1,5 +1,6 @@
 ---
 title: "Obnovljivi viri in omrežja"
+question: "Kako uskladiti hitro rast obnovljivih virov z zmogljivostjo omrežja?"
 status: outline
 weight: 2
 teme: [energija]

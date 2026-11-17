@@ -15,7 +15,7 @@ steps:
 assessment: ""
 authors: []
 related_articles: []     # npr. "/osnovna-sola/osnove/vreme-in-podnebje"
-related_media: []        # slugi iz content/multimedija
+related_media: []        # slugi slik iz content/ucitelji/gradiva
 date: {{ now.Format "2006-01-02" }}
 lastmod: {{ now.Format "2006-01-02" }}
 resources:               # datoteke v istem imeniku

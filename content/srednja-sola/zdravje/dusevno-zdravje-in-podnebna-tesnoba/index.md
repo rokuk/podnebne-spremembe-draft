@@ -1,5 +1,6 @@
 ---
 title: "Duševno zdravje in podnebna tesnoba"
+question: "Kako se spoprijeti s skrbjo zaradi podnebnih sprememb?"
 status: outline
 weight: 3
 teme: [zdravje]

@@ -1,5 +1,6 @@
 ---
 title: "Podnebne spremembe v Sloveniji, blaženje in prilagajanje"
+question: "Kako se podnebje spreminja v Sloveniji in kako se na to odzivamo?"
 status: published
 weight: 3
 teme: [osnove]

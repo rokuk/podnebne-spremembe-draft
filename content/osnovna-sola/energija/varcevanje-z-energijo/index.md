@@ -1,5 +1,6 @@
 ---
 title: "Varčevanje z energijo"
+question: "Kako lahko doma in v šoli porabimo manj energije?"
 status: outline
 weight: 3
 teme: [energija]

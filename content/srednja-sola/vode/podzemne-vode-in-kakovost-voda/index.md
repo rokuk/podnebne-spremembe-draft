@@ -1,5 +1,6 @@
 ---
 title: "Podzemne vode in kakovost voda"
+question: "Kako podnebne spremembe vplivajo na zaloge in kakovost podzemne vode?"
 status: outline
 weight: 4
 teme: [vode]

@@ -1,5 +1,6 @@
 ---
 title: "Shema EU za trgovanje z emisijami (EU ETS)"
+question: "Kako deluje EU ETS in kaj pomeni za slovenske zavezance?"
 status: outline
 weight: 1
 teme: [industrija-in-krozno]

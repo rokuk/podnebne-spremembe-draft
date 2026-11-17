@@ -1,5 +1,6 @@
 ---
 title: "Morje in obala"
+question: "Kako segrevanje in zakisanje morja vplivata na slovensko obalo in morske organizme?"
 status: outline
 weight: 4
 teme: [biotska-raznovrstnost]

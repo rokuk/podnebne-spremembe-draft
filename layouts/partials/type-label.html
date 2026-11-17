@@ -1,2 +1,5 @@
-{{- $m := dict "clanek" "Članek" "priprava" "Učna priprava" "gradivo" "Gradivo za prenos" "multimedija" "Multimedija" "novica" "Novica" "glosar" "Pojem" -}}
-{{- return (index $m .) -}}
+{{- /* Context: a page. Returns its content-type label; image items are "Video" when they have a video, otherwise "Slika". */ -}}
+{{- $m := dict "clanek" "Članek" "priprava" "Učna priprava" "gradivo" "Gradivo" "novica" "Novica" "glosar" "Pojem" -}}
+{{- $l := "" -}}
+{{- if eq .Type "slika" }}{{ $l = "Slika" }}{{ with .Params.video }}{{ $l = "Video" }}{{ end }}{{ else }}{{ $l = index $m .Type }}{{ end -}}
+{{- return $l -}}

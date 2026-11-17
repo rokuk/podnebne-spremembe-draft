@@ -1,5 +1,6 @@
 ---
 title: "Energija v šoli"
+question: "Za kaj porabimo energijo v šoli in kako jo lahko prihranimo?"
 status: outline
 weight: 4
 teme: [energija]

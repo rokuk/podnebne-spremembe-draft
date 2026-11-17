@@ -1,5 +1,6 @@
 ---
 title: "Toplotni otoki"
+question: "Zakaj je v mestih topleje kot v okolici in kako to omilimo?"
 status: outline
 weight: 1
 teme: [prostor-in-mesta]

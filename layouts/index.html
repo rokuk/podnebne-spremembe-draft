@@ -1,5 +1,6 @@
 {{ define "main" }}
 <section class="hero" aria-labelledby="hero-title">
+  {{ partial "hero-temp.html" . }}
   <div class="container hero-inner">
     <h1 id="hero-title">{{ .Params.hero_title | default site.Title }}</h1>
     <p class="hero-lead">{{ .Params.hero_lead }}</p>
@@ -17,13 +18,11 @@
     {{- range hugo.Data.levels }}
     {{- $pg := site.GetPage (printf "/%s" .slug) }}
     <a class="audience-card" data-accent="{{ .slug }}" href="{{ $pg.RelPermalink }}">
-      <span class="audience-abbr" aria-hidden="true">{{ .short }}</span>
       <span class="audience-name">{{ .name }}</span>
       <span class="audience-desc">{{ .audience }}</span>
     </a>
     {{- end }}
     <a class="audience-card" data-accent="ucitelji" href="{{ "ucitelji/" | relURL }}">
-      <span class="audience-abbr" aria-hidden="true">UČ</span>
       <span class="audience-name">{{ i18n "for_teachers" }}</span>
       <span class="audience-desc">Učne priprave, učni listi in gradiva za prenos, razvrščena po razredu, predmetu in temi</span>
     </a>

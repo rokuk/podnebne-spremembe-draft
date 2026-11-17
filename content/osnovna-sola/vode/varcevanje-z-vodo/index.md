@@ -1,5 +1,6 @@
 ---
 title: "Varčevanje z vodo"
+question: "Kako lahko vsak dan porabimo manj vode?"
 status: outline
 weight: 4
 teme: [vode]

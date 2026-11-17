@@ -12,8 +12,8 @@
   <a class="card-thumb" href="{{ .RelPermalink }}" tabindex="-1" aria-hidden="true"><img src="{{ $thumb.RelPermalink }}" alt="" loading="lazy"></a>
   {{- end }}
   <p class="card-kicker">
-    {{ partial "type-label.html" .Type }}
-    {{- with .Params.level }} · {{ partial "level-name.html" . }}{{ end }}
+    {{ partial "type-label.html" . }}
+    {{- with .Params.level }} · {{ partial "level-short.html" . }}{{ end }}
     {{- if and (eq .Type "novica") .Date }} · <time datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date.Format "2. 1. 2006" }}</time>{{ end }}
   </p>
   <h3 class="card-title"><a href="{{ .RelPermalink }}">{{ .Title }}</a></h3>

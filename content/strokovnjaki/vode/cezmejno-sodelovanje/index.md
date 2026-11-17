@@ -1,5 +1,6 @@
 ---
 title: "Čezmejno sodelovanje"
+question: "Kako usklajeno upravljati vode v povodjih, ki segajo čez državne meje?"
 status: outline
 weight: 4
 teme: [vode]
